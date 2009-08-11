@@ -1,21 +1,26 @@
-﻿using System.ComponentModel.Composition;
+﻿using System;
+using System.ComponentModel.Composition;
 using System.Web.Mvc;
 using System.Web.Routing;
 using Inferis.KindjesNet.Core;
+using Inferis.KindjesNet.Core.Mvc;
 
 namespace Inferis.KindjesNet.Blog
 {
     [Export(typeof(IRouteProvider))]
-    public class RouteProvider : IRouteProvider
+    public class RouteProvider : DefaultRouteProvider
     {
-        public void MapRoutes(RouteCollection routes)
+        public RouteProvider() : base("Blog")
         {
-            routes.MapRoute(
-                "Blog",                                              // Route name
-                "blog/{action}/{id}",                           // URL with parameters
-                new { controller = "Blog", action = "Index", id = "" }  // Parameter defaults
-                );
+            
+        }
 
+        public override void MapAdditionalRoutes(RouteCollection routes)
+        {
+            routes.MapRoute("OldBlog",
+                "blog/post.aspx",
+                new { controller = "Blog", action = "OldPost" }
+                );
         }
     }
 }
