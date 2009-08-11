@@ -31,6 +31,10 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="RouteDebug, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\Libaries\RouteDebug.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.ComponentModel.Composition, Version=2009.7.8.0, Culture=neutral, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
@@ -60,6 +64,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Controllers\AccountController.cs" />
+    <Compile Include="Controllers\GlobalArchiveController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\KidsController.cs" />
     <Compile Include="Default.aspx.cs">
@@ -75,6 +80,10 @@
     <Content Include="Content\kindjes_net.css" />
     <Content Include="Default.aspx" />
     <Content Include="Global.asax" />
+    <Content Include="Views\GlobalArchive\Day.aspx" />
+    <Content Include="Views\GlobalArchive\Month.aspx" />
+    <Content Include="Views\GlobalArchive\Year.aspx" />
+    <Content Include="Views\Kids\Index.aspx" />
     <Content Include="Views\Kids\One.aspx" />
     <Content Include="Web.config" />
     <Content Include="Content\Site.css" />

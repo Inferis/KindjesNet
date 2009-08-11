@@ -21,9 +21,22 @@ namespace Inferis.KindjesNet.Web
         {
             routes.IgnoreRoute("{resource}.axd/{*pathInfo}");
 
+            routes.MapRoute(
+                "GlobalArchive",
+                "{year}/{month}/{day}",
+                new { controller = "GlobalArchive", action = "Index", month = "00", day = "00" },
+                new { year = @"\d{4}", month = @"\d{2}", day = @"\d{2}" }
+            );
+
             foreach (var routeProvider in RouteProviders) {
                 routeProvider.MapRoutes(routes);
             }
+
+            routes.MapRoute(
+                "Kids",                                              // Route name
+                "kids/{action}/{view}",                           // URL with parameters
+                new { controller = "Kids", action = "Index" }  // Parameter defaults
+                );
 
             routes.MapRoute(
                 "Default",                                              // Route name
@@ -31,28 +44,23 @@ namespace Inferis.KindjesNet.Web
                 new { controller = "Home", action = "Index", id = "" }  // Parameter defaults
                 );
 
-            routes.MapRoute(
-                "Kids",                                              // Route name
-                "kids/{action}/{view}",                           // URL with parameters
-                new { controller = "Kids", action = "Index" }  // Parameter defaults
-                );
         }
 
         protected void Application_Start()
         {
             InitializePlugins();
             RegisterRoutes(RouteTable.Routes);
+            //RouteDebug.RouteDebugger.RewriteRoutesForTesting(RouteTable.Routes);
         }
 
         private void InitializePlugins()
         {
-            pluginsContainer = new PluginContainer(Server.MapPath("Plugins"));
+            pluginsContainer = new PluginContainer("~/Plugins");
 
             // set controller factory for plugins
-            ControllerBuilder.Current.SetControllerFactory(new PluginControllerFactory(pluginsContainer));
+            pluginsContainer.SetControllerFactory(ControllerBuilder.Current);
+            pluginsContainer.AddViewEngine(ViewEngines.Engines);
 
-            HostingEnvironment.RegisterVirtualPathProvider(new ResourcedAspxProvider());
-            ViewEngines.Engines.Add(new PluginViewEngine());
             // compose this app for the route providers
             pluginsContainer.CompositionContainer.ComposeParts(this);
         }
