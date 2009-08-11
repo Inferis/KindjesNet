@@ -54,6 +54,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Mvc\DefaultRouteProvider.cs" />
     <Compile Include="IRouteProvider.cs" />
     <Compile Include="Mvc\PluginControllerFactory.cs" />
     <Compile Include="Mvc\PluginViewEngine.cs" />

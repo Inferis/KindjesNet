@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using System.Web;
 using System.Web.Compilation;
 using System.Web.Mvc;
 
@@ -9,15 +10,25 @@ namespace Inferis.KindjesNet.Core.Mvc
 {
     public class PluginViewEngine : System.Web.Mvc.WebFormViewEngine
     {
-        public PluginViewEngine()
+        private readonly PluginContainer container;
+        private readonly string pluginsPath;
+
+        public PluginViewEngine(PluginContainer container)
         {
-            
+            this.container = container;
+            this.pluginsPath = VirtualPathUtility.ToAppRelative(container.PluginsPath) + "/";
         }
 
         protected override bool FileExists(ControllerContext controllerContext, string virtualPath)
         {
-            var prefix = "~/$" + controllerContext.Controller.GetType().Assembly.GetName().Name + "$/";
-            return base.FileExists(controllerContext, virtualPath.Replace("~/", prefix));
+            return base.FileExists(controllerContext, FixPath(virtualPath, controllerContext));
+        }
+
+        private string FixPath(string path, ControllerContext controllerContext)
+        {
+            return path.Replace(
+                "~/",
+                pluginsPath + controllerContext.Controller.GetType().Assembly.GetName().Name + "/");
         }
 
         public override ViewEngineResult FindPartialView(ControllerContext controllerContext, string partialViewName, bool useCache)
@@ -27,7 +38,7 @@ namespace Inferis.KindjesNet.Core.Mvc
 
         protected override IView CreateView(ControllerContext controllerContext, string viewPath, string masterPath)
         {
-            return base.CreateView(controllerContext, viewPath, masterPath);
+            return base.CreateView(controllerContext, FixPath(viewPath, controllerContext), masterPath);
         }
     }
 }
