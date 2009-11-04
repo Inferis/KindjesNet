@@ -31,6 +31,22 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="FluentNHibernate, Version=0.1.0.535, Culture=neutral, PublicKeyToken=8aa435e3cb308880, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\Libaries\FluentNHibernate.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Practices.ObjectBuilder2, Version=2.2.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\Libaries\Microsoft.Practices.ObjectBuilder2.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Practices.Unity, Version=1.2.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\Libaries\Microsoft.Practices.Unity.dll</HintPath>
+    </Reference>
+    <Reference Include="NHibernate, Version=2.1.0.4000, Culture=neutral, PublicKeyToken=aa95f207798dfdb4, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\Libaries\NHibernate.dll</HintPath>
+    </Reference>
     <Reference Include="RouteDebug, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
       <HintPath>..\Libaries\RouteDebug.dll</HintPath>
@@ -67,6 +83,7 @@
     <Compile Include="Controllers\GlobalArchiveController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\KidsController.cs" />
+    <Compile Include="Controllers\SpiderController.cs" />
     <Compile Include="Default.aspx.cs">
       <DependentUpon>Default.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -75,8 +92,33 @@
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="UnityExtensions.cs" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Content\img\around-bg.jpg" />
+    <Content Include="Content\img\dummy.jpg" />
+    <Content Include="Content\img\fluo-blue.png" />
+    <Content Include="Content\img\fluo-green.png" />
+    <Content Include="Content\img\fluo-orange.jpg" />
+    <Content Include="Content\img\fluo-orange.png" />
+    <Content Include="Content\img\fluo-pink.png" />
+    <Content Include="Content\img\fluo-yellow.png" />
+    <Content Include="Content\img\icon-blog.png" />
+    <Content Include="Content\img\icon-vimeo.png" />
+    <Content Include="Content\img\label-fien-hl.png" />
+    <Content Include="Content\img\label-fien.png" />
+    <Content Include="Content\img\label-klaas-hl.png" />
+    <Content Include="Content\img\label-klaas.png" />
+    <Content Include="Content\img\label-trijn-hl.png" />
+    <Content Include="Content\img\label-trijn.png" />
+    <Content Include="Content\img\left-bg.jpg" />
+    <Content Include="Content\img\page-bg.jpg" />
+    <Content Include="Content\img\right-bg.png" />
+    <Content Include="Content\img\old-top-bg.png" />
+    <Content Include="Content\img\thdown.png" />
+    <Content Include="Content\img\thup.png" />
+    <Content Include="Content\img\title.png" />
+    <Content Include="Content\img\top-bg.png" />
     <Content Include="Content\kindjes_net.css" />
     <Content Include="Default.aspx" />
     <Content Include="Global.asax" />
@@ -85,6 +127,8 @@
     <Content Include="Views\GlobalArchive\Year.aspx" />
     <Content Include="Views\Kids\Index.aspx" />
     <Content Include="Views\Kids\One.aspx" />
+    <Content Include="Views\Spider\Execute.aspx" />
+    <Content Include="Views\Spider\Index.aspx" />
     <Content Include="Web.config" />
     <Content Include="Content\Site.css" />
     <Content Include="Scripts\jquery-1.3.2.js" />
@@ -107,6 +151,10 @@
     <Content Include="Views\Web.config" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\Inferis.Core\Inferis.Core.csproj">
+      <Project>{7DC6F24A-66DE-4F1C-898F-2895EE485B3F}</Project>
+      <Name>Inferis.Core</Name>
+    </ProjectReference>
     <ProjectReference Include="..\Inferis.KindjesNet.Core\Inferis.KindjesNet.Core.csproj">
       <Project>{92C82287-D08F-4E49-8B59-054522C974C8}</Project>
       <Name>Inferis.KindjesNet.Core</Name>
@@ -131,9 +179,9 @@
       <FlavorProperties GUID="{349c5851-65df-11da-9384-00065b846f21}">
         <WebProjectProperties>
           <UseIIS>True</UseIIS>
-          <AutoAssignPort>True</AutoAssignPort>
-          <DevelopmentServerPort>49527</DevelopmentServerPort>
-          <DevelopmentServerVPath>/</DevelopmentServerVPath>
+          <AutoAssignPort>False</AutoAssignPort>
+          <DevelopmentServerPort>11111</DevelopmentServerPort>
+          <DevelopmentServerVPath>/KindjesWeb</DevelopmentServerVPath>
           <IISUrl>http://localhost/KindjesWeb</IISUrl>
           <NTLMAuthentication>False</NTLMAuthentication>
           <UseCustomServer>False</UseCustomServer>

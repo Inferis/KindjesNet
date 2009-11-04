@@ -1,13 +1,10 @@
-using System;
-using System.Collections.Generic;
 using System.Linq;
-using System.Web;
 using System.Web.Mvc;
-using System.Web.Mvc.Ajax;
+using Inferis.KindjesNet.Core.Mvc.Controllers;
 
 namespace Inferis.KindjesNet.Web.Controllers
 {
-    public class KidsController : Controller
+    public class KidsController : ControllerWithKids
     {
         // Geeft lijstjes terug van alle kinderen
         public ActionResult Index()
@@ -17,6 +14,7 @@ namespace Inferis.KindjesNet.Web.Controllers
 
         public ActionResult One(string kid)
         {
+            HighlightKid(kid);
             return View("One");
         }
 

@@ -1,3 +1,256 @@
-﻿body
+﻿*
 {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    text-decoration: none;
+    border: 0;
+    outline: none;
+    font-size: 1em;
+}
+
+a:hover
+{
+    text-decoration: underline;
+}
+
+body
+{
+    margin: 0;
+    padding: 0;
+    background: white url(img/page-bg.jpg) top center repeat-y;
+    font-family: Cambria, Georgia, serif;
+    font-size: 14px;
+    text-align: center;
+}
+
+A
+{
+    color: #ff118c;
+}
+
+#around
+{
+    position: relative;
+    width: 960px;
+    margin: 0 auto;
+    padding: 0;
+    text-align: left;
+}
+
+#top
+{
+    width: 1000px;
+    height: 58px;
+    background: url(img/top-bg.png) bottom center no-repeat;
+    position: absolute;
+    z-index: -10;
+    left: -20px;
+    top: 0;
+}
+
+#side
+{
+    width: 340px;
+    margin: 0 10px;
+    position: absolute;
+}
+
+#side h1 a
+{
+    margin: 52px 0 0 30px;
+}
+
+#side h1 a
+{
+    display: block;
+    width: 270px;
+    height: 100px;
+    background: url(img/title.png) center center no-repeat;
+    text-indent: -1000px;
+}
+
+#mid
+{
+    margin: 0 40px 0 400px;
+    padding-top: 100px;
+}
+
+#labels
+{
+    position: absolute;
+    top: 21px;
+    right: 50px;
+}
+
+#labels li
+{
+    display: block;
+    float: left;
+    margin-left: 10px;
+}
+
+#labels li a
+{
+    display: block;
+    width: 89px;
+    height: 60px;
+    text-indent: -10000px;
+    overflow: hidden;
+}
+
+#labels li.label-fien a
+{
+    background: url(img/label-fien.png) center center no-repeat;
+}
+
+#labels li.label-fien a.hl, #labels li.label-fien a:hover
+{
+    background: url(img/label-fien-hl.png) center center no-repeat;
+}
+
+#labels li.label-klaas a
+{
+    background: url(img/label-klaas.png) center center no-repeat;
+}
+
+#labels li.label-klaas a.hl, #labels li.label-klaas a:hover
+{
+    background: url(img/label-klaas-hl.png) center center no-repeat;
+}
+
+#labels li.label-trijn a
+{
+    background: url(img/label-trijn.png) center center no-repeat;
+}
+
+#labels li.label-trijn a.hl, #labels li.label-trijn a:hover
+{
+    background: url(img/label-trijn-hl.png) center center no-repeat;
+}
+
+#content
+{
+    color: #555;
+}
+
+#content img
+{
+    border: 2px solid #ccc;
+}
+
+span.fluo
+{
+    background: url(img/fluo-dummy.png) -2px center no-repeat;
+    padding: 4px 0px 4px 0px;
+    clip: rect(0 48px 0 0);
+    margin-right: 10px;
+}
+
+span.fluo span
+{
+    background: url(img/fluo-dummy.png) center right no-repeat;
+    position: relative;
+    right: -10px;
+    padding: 4px 15px 4px 0;
+}
+
+span.fluo.orange, span.fluo.orange span
+{
+    background-image: url(img/fluo-orange.png);
+}
+
+span.fluo.yellow, span.fluo.yellow span
+{
+    background-image: url(img/fluo-yellow.png);
+}
+
+span.fluo.green, span.fluo.green span
+{
+    background-image: url(img/fluo-green.png);
+}
+
+span.fluo.pink, span.fluo.pink span
+{
+    background-image: url(img/fluo-pink.png);
+}
+
+
+/* feeditem */
+
+div.feeditem
+{
+    margin: 20px 0;
+}
+
+div.feeditem .fluo a
+{
+    color: #333;
+    font-size: 18px;
+}
+
+div.feeditem div.title
+{
+    display: inline;
+    margin-bottom: 10px;
+}
+
+div.feeditem img.thumbnail
+{
+    display: none;
+    border: 2px solid #666;
+    -webkit-transform: rotate(2deg);
+    -moz-transform: rotate(2deg);
+    transform: rotate(2deg);
+    float: right;
+    vertical-align: top;
+}
+
+div.feeditem .actions
+{
+    clear: both;
+    font-size: 12px;
+    font-family: calibri, helvetica, Arial;
+}
+
+div.feeditem .info, div.feeditem .info a
+{
+    font-size: 12px;
+    color: #666;
+}
+
+div.feeditem .info, div.feeditem .info a
+{
+    color: #666;
+}
+
+div.feeditem .info a.icon
+{
+    width: 16px;
+    height: 16px;
+    display: inline-block;
+    position: relative;
+    top: 4px;
+}
+
+div.feeditem .info a.icon.blog
+{
+    background: url(img/icon-blog.png) center center no-repeat;
+}
+
+div.feeditem .info a.icon.vimeo
+{
+    background: url(img/icon-vimeo.png) center center no-repeat;
+}
+
+div.feeditem a.thup
+{
+    background: url(img/thup.png) center left no-repeat;
+    padding-left: 18px;
+}
+
+div.feeditem a.thdown
+{
+    background: url(img/thdown.png) center left no-repeat;
+    padding-left: 18px;
 }

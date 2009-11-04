@@ -1,37 +1,34 @@
-<%@ Master Language="C#" Inherits="System.Web.Mvc.ViewMasterPage" %>
-
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<%@ Import Namespace="Inferis.KindjesNet.Core.Mvc.Markup" %>
+<%@ Master Language="C#" Inherits="System.Web.Mvc.ViewMasterPage" %>
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head runat="server">
-    <title><asp:ContentPlaceHolder ID="TitleContent" runat="server" /></title>
+    <title>
+        <asp:ContentPlaceHolder ID="TitleContent" runat="server" />
+    </title>
     <link href="../../Content/kindjes_net.css" rel="stylesheet" type="text/css" />
 </head>
 
 <body>
     <div id="around">
-        <div id="top">
-            <h1>Kindjes.Net</h1>
-            <ul id="kids">              
-                <li><%= Html.ActionLink("Fien", "fien", "kids")%></sli>
-                <li><%= Html.ActionLink("Klaas", "klaas", "kids")%></li>
-                <li><%= Html.ActionLink("Trijn", "trijn", "kids")%></li>
-            </ul>
-        </div>
+        
+        <div id="top"></div>
         <div id="side">
-            <ul id="menu">              
-                <li><%= Html.ActionLink("Home", "Index", "Home")%></li>
-                <li><%= Html.ActionLink("About", "About", "Home")%></li>
-            </ul>
+            <h1><%= Html.ActionLink("Kindjes", "Index", "Home")%></h1>
         </div>
-        <div id="content">
-            <asp:ContentPlaceHolder ID="MainContent" runat="server" />
+        <div id="mid">
+            <div id="labels">
+                <%= Html.GenerateKidsLabels() %>
+            </div>
 
+            <div id="content">
+                <asp:ContentPlaceHolder ID="MainContent" runat="server" />
+            </div>
+            
             <div id="footer">
                 foooooter
             </div>
         </div>
-    </div>    
-</div>
-
+    </div>
 </body>
 </html>
