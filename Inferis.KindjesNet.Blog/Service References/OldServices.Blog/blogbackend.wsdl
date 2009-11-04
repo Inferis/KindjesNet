@@ -1,0 +1,481 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:tm="http://microsoft.com/wsdl/mime/textMatching/" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:mime="http://schemas.xmlsoap.org/wsdl/mime/" xmlns:tns="http://www.inferis.org/baby/Backend" xmlns:s="http://www.w3.org/2001/XMLSchema" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" xmlns:http="http://schemas.xmlsoap.org/wsdl/http/" targetNamespace="http://www.inferis.org/baby/Backend" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:types>
+    <s:schema elementFormDefault="qualified" targetNamespace="http://www.inferis.org/baby/Backend">
+      <s:element name="GetLocalTime">
+        <s:complexType />
+      </s:element>
+      <s:element name="GetLocalTimeResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetLocalTimeResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetAllBlogs">
+        <s:complexType />
+      </s:element>
+      <s:element name="GetAllBlogsResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetAllBlogsResult">
+              <s:complexType>
+                <s:sequence>
+                  <s:element ref="s:schema" />
+                  <s:any />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetArticlesByBlog">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="blogId" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetArticlesByBlogResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetArticlesByBlogResult">
+              <s:complexType>
+                <s:sequence>
+                  <s:element ref="s:schema" />
+                  <s:any />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetCommentsByBlog">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="blogId" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetCommentsByBlogResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetCommentsByBlogResult">
+              <s:complexType>
+                <s:sequence>
+                  <s:element ref="s:schema" />
+                  <s:any />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetCommentsByArticle">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="articleId" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetCommentsByArticleResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetCommentsByArticleResult">
+              <s:complexType>
+                <s:sequence>
+                  <s:element ref="s:schema" />
+                  <s:any />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetPostersByBlog">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="blogId" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetPostersByBlogResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetPostersByBlogResult">
+              <s:complexType>
+                <s:sequence>
+                  <s:element ref="s:schema" />
+                  <s:any />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetArticle">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="articleId" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetArticleResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetArticleResult">
+              <s:complexType>
+                <s:sequence>
+                  <s:element ref="s:schema" />
+                  <s:any />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="CreateArticle">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="blogId" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="posterId" type="s:int" />
+            <s:element minOccurs="0" maxOccurs="1" name="title" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="body" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="stamp" type="s:dateTime" />
+            <s:element minOccurs="1" maxOccurs="1" name="lastmodified" type="s:dateTime" />
+            <s:element minOccurs="1" maxOccurs="1" name="status" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="CreateArticleResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="CreateArticleResult" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="UpdateArticle">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="articleId" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="posterId" type="s:int" />
+            <s:element minOccurs="0" maxOccurs="1" name="title" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="body" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="stamp" type="s:dateTime" />
+            <s:element minOccurs="1" maxOccurs="1" name="lastmodified" type="s:dateTime" />
+            <s:element minOccurs="1" maxOccurs="1" name="status" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="UpdateArticleResponse">
+        <s:complexType />
+      </s:element>
+      <s:element name="RemoveComment">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="commentId" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="RemoveCommentResponse">
+        <s:complexType />
+      </s:element>
+    </s:schema>
+  </wsdl:types>
+  <wsdl:message name="GetLocalTimeSoapIn">
+    <wsdl:part name="parameters" element="tns:GetLocalTime" />
+  </wsdl:message>
+  <wsdl:message name="GetLocalTimeSoapOut">
+    <wsdl:part name="parameters" element="tns:GetLocalTimeResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetAllBlogsSoapIn">
+    <wsdl:part name="parameters" element="tns:GetAllBlogs" />
+  </wsdl:message>
+  <wsdl:message name="GetAllBlogsSoapOut">
+    <wsdl:part name="parameters" element="tns:GetAllBlogsResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetArticlesByBlogSoapIn">
+    <wsdl:part name="parameters" element="tns:GetArticlesByBlog" />
+  </wsdl:message>
+  <wsdl:message name="GetArticlesByBlogSoapOut">
+    <wsdl:part name="parameters" element="tns:GetArticlesByBlogResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetCommentsByBlogSoapIn">
+    <wsdl:part name="parameters" element="tns:GetCommentsByBlog" />
+  </wsdl:message>
+  <wsdl:message name="GetCommentsByBlogSoapOut">
+    <wsdl:part name="parameters" element="tns:GetCommentsByBlogResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetCommentsByArticleSoapIn">
+    <wsdl:part name="parameters" element="tns:GetCommentsByArticle" />
+  </wsdl:message>
+  <wsdl:message name="GetCommentsByArticleSoapOut">
+    <wsdl:part name="parameters" element="tns:GetCommentsByArticleResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetPostersByBlogSoapIn">
+    <wsdl:part name="parameters" element="tns:GetPostersByBlog" />
+  </wsdl:message>
+  <wsdl:message name="GetPostersByBlogSoapOut">
+    <wsdl:part name="parameters" element="tns:GetPostersByBlogResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetArticleSoapIn">
+    <wsdl:part name="parameters" element="tns:GetArticle" />
+  </wsdl:message>
+  <wsdl:message name="GetArticleSoapOut">
+    <wsdl:part name="parameters" element="tns:GetArticleResponse" />
+  </wsdl:message>
+  <wsdl:message name="CreateArticleSoapIn">
+    <wsdl:part name="parameters" element="tns:CreateArticle" />
+  </wsdl:message>
+  <wsdl:message name="CreateArticleSoapOut">
+    <wsdl:part name="parameters" element="tns:CreateArticleResponse" />
+  </wsdl:message>
+  <wsdl:message name="UpdateArticleSoapIn">
+    <wsdl:part name="parameters" element="tns:UpdateArticle" />
+  </wsdl:message>
+  <wsdl:message name="UpdateArticleSoapOut">
+    <wsdl:part name="parameters" element="tns:UpdateArticleResponse" />
+  </wsdl:message>
+  <wsdl:message name="RemoveCommentSoapIn">
+    <wsdl:part name="parameters" element="tns:RemoveComment" />
+  </wsdl:message>
+  <wsdl:message name="RemoveCommentSoapOut">
+    <wsdl:part name="parameters" element="tns:RemoveCommentResponse" />
+  </wsdl:message>
+  <wsdl:portType name="BlogBackendSoap">
+    <wsdl:operation name="GetLocalTime">
+      <wsdl:input message="tns:GetLocalTimeSoapIn" />
+      <wsdl:output message="tns:GetLocalTimeSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetAllBlogs">
+      <wsdl:input message="tns:GetAllBlogsSoapIn" />
+      <wsdl:output message="tns:GetAllBlogsSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetArticlesByBlog">
+      <wsdl:input message="tns:GetArticlesByBlogSoapIn" />
+      <wsdl:output message="tns:GetArticlesByBlogSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetCommentsByBlog">
+      <wsdl:input message="tns:GetCommentsByBlogSoapIn" />
+      <wsdl:output message="tns:GetCommentsByBlogSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetCommentsByArticle">
+      <wsdl:input message="tns:GetCommentsByArticleSoapIn" />
+      <wsdl:output message="tns:GetCommentsByArticleSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetPostersByBlog">
+      <wsdl:input message="tns:GetPostersByBlogSoapIn" />
+      <wsdl:output message="tns:GetPostersByBlogSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetArticle">
+      <wsdl:input message="tns:GetArticleSoapIn" />
+      <wsdl:output message="tns:GetArticleSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="CreateArticle">
+      <wsdl:input message="tns:CreateArticleSoapIn" />
+      <wsdl:output message="tns:CreateArticleSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="UpdateArticle">
+      <wsdl:input message="tns:UpdateArticleSoapIn" />
+      <wsdl:output message="tns:UpdateArticleSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="RemoveComment">
+      <wsdl:input message="tns:RemoveCommentSoapIn" />
+      <wsdl:output message="tns:RemoveCommentSoapOut" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="BlogBackendSoap" type="tns:BlogBackendSoap">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="GetLocalTime">
+      <soap:operation soapAction="http://www.inferis.org/baby/Backend/GetLocalTime" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetAllBlogs">
+      <soap:operation soapAction="http://www.inferis.org/baby/Backend/GetAllBlogs" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetArticlesByBlog">
+      <soap:operation soapAction="http://www.inferis.org/baby/Backend/GetArticlesByBlog" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetCommentsByBlog">
+      <soap:operation soapAction="http://www.inferis.org/baby/Backend/GetCommentsByBlog" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetCommentsByArticle">
+      <soap:operation soapAction="http://www.inferis.org/baby/Backend/GetCommentsByArticle" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetPostersByBlog">
+      <soap:operation soapAction="http://www.inferis.org/baby/Backend/GetPostersByBlog" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetArticle">
+      <soap:operation soapAction="http://www.inferis.org/baby/Backend/GetArticle" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="CreateArticle">
+      <soap:operation soapAction="http://www.inferis.org/baby/Backend/CreateArticle" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UpdateArticle">
+      <soap:operation soapAction="http://www.inferis.org/baby/Backend/UpdateArticle" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="RemoveComment">
+      <soap:operation soapAction="http://www.inferis.org/baby/Backend/RemoveComment" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:binding name="BlogBackendSoap12" type="tns:BlogBackendSoap">
+    <soap12:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="GetLocalTime">
+      <soap12:operation soapAction="http://www.inferis.org/baby/Backend/GetLocalTime" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetAllBlogs">
+      <soap12:operation soapAction="http://www.inferis.org/baby/Backend/GetAllBlogs" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetArticlesByBlog">
+      <soap12:operation soapAction="http://www.inferis.org/baby/Backend/GetArticlesByBlog" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetCommentsByBlog">
+      <soap12:operation soapAction="http://www.inferis.org/baby/Backend/GetCommentsByBlog" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetCommentsByArticle">
+      <soap12:operation soapAction="http://www.inferis.org/baby/Backend/GetCommentsByArticle" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetPostersByBlog">
+      <soap12:operation soapAction="http://www.inferis.org/baby/Backend/GetPostersByBlog" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetArticle">
+      <soap12:operation soapAction="http://www.inferis.org/baby/Backend/GetArticle" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="CreateArticle">
+      <soap12:operation soapAction="http://www.inferis.org/baby/Backend/CreateArticle" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UpdateArticle">
+      <soap12:operation soapAction="http://www.inferis.org/baby/Backend/UpdateArticle" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="RemoveComment">
+      <soap12:operation soapAction="http://www.inferis.org/baby/Backend/RemoveComment" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="BlogBackend">
+    <wsdl:port name="BlogBackendSoap" binding="tns:BlogBackendSoap">
+      <soap:address location="http://www.inferis.org/fien/backend/blogbackend.asmx" />
+    </wsdl:port>
+    <wsdl:port name="BlogBackendSoap12" binding="tns:BlogBackendSoap12">
+      <soap12:address location="http://www.inferis.org/fien/backend/blogbackend.asmx" />
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>
