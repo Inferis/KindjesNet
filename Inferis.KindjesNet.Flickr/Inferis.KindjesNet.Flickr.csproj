@@ -78,7 +78,16 @@
   -->
   <PropertyGroup>
     <PostBuildEvent>xcopy /y /c /i /s $(ProjectDir)*.as?x $(SolutionDir)Inferis.KindjesNet.Web\Plugins\$(TargetName)
-xcopy /y /c /i $(TargetName).??? $(SolutionDir)Inferis.KindjesNet.Web\Plugins\$(TargetName)
+
+xcopy /y /c /i /s $(ProjectDir)*.config $(SolutionDir)Inferis.KindjesNet.Web\Plugins\$(TargetName)
+
+xcopy /y /c /i /s $(ProjectDir)\Content\*.* $(SolutionDir)Inferis.KindjesNet.Web\Plugins\$(TargetName)\Content
+
+xcopy /y /c /i /s $(ProjectDir)app.config $(SolutionDir)Inferis.KindjesNet.Web\Plugins\$(TargetName)
+
+ren $(SolutionDir)Inferis.KindjesNet.Web\Plugins\$(TargetName)\app.config $(SolutionDir)Inferis.KindjesNet.Web\Plugins\$(TargetName)\web.config
+
+xcopy /y /c /i $(TargetDir)*.* $(SolutionDir)Inferis.KindjesNet.Web\Plugins\$(TargetName)\bin
 </PostBuildEvent>
   </PropertyGroup>
 </Project>
