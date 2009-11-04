@@ -1,10 +1,6 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Web;
-using System.Web.Compilation;
+﻿using System.Web;
 using System.Web.Mvc;
+using Inferis.KindjesNet.Core.Plugins;
 
 namespace Inferis.KindjesNet.Core.Mvc
 {
