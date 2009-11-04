@@ -1,5 +1,8 @@
 using System.ComponentModel.Composition;
 using System.Web.Mvc;
+using Inferis.KindjesNet.Core.Mvc;
+using Inferis.KindjesNet.Vimeo.Managers;
+using Microsoft.Practices.Unity;
 
 namespace Inferis.KindjesNet.Vimeo.Controllers
 {
@@ -7,10 +10,16 @@ namespace Inferis.KindjesNet.Vimeo.Controllers
     [PartCreationPolicy(CreationPolicy.NonShared)]
     public class VimeoController : Controller
     {
+        [Dependency]
+        public IVimeoManager VideoManager { get; set; }
+
         public ActionResult Item(int year, int month, int day, string extra)
         {
-            ViewData["Origin"] = extra;
-            return View("All");
+            var video = VideoManager.GetVideo(year, month, day, extra);
+            if (video == null)
+                return new NotFoundResult();
+
+            return View("Item", video);
         }
 
         public ActionResult ArchiveDay(int year, int month, int day)

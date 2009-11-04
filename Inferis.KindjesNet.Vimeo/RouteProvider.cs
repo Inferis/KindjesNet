@@ -1,7 +1,7 @@
 ﻿using System.ComponentModel.Composition;
 using System.Web.Routing;
-using Inferis.KindjesNet.Core;
 using Inferis.KindjesNet.Core.Mvc;
+using Inferis.KindjesNet.Core.Plugins;
 
 namespace Inferis.KindjesNet.Vimeo
 {
