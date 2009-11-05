@@ -87,6 +87,10 @@
     <Compile Include="VimeoSettings.cs" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\..\Inferis APIs\Vimeo\Inferis.API.Vimeo\Inferis.API.Vimeo.csproj">
+      <Project>{0A2D18A4-A438-4880-AE3B-A5895428A77A}</Project>
+      <Name>Inferis.API.Vimeo</Name>
+    </ProjectReference>
     <ProjectReference Include="..\Inferis.Core\Inferis.Core.csproj">
       <Project>{7DC6F24A-66DE-4F1C-898F-2895EE485B3F}</Project>
       <Name>Inferis.Core</Name>

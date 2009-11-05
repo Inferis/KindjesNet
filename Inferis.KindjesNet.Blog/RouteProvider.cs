@@ -13,7 +13,6 @@ namespace Inferis.KindjesNet.Blog
         public RouteProvider()
             : base("Blog")
         {
-
         }
 
         public override void MapAdditionalRoutes(RouteCollection routes)

@@ -1,13 +1,14 @@
-using System.Linq;
-using FluentNHibernate.Automapping;
+﻿using FluentNHibernate.Automapping;
 
 namespace Inferis.KindjesNet.Core
 {
     public static class DataModelAttributeExtensions
     {
-        public static AutoPersistenceModel WhereTypeIsDataModel(this AutoPersistenceModel model)
+        public static AutoPersistenceModel WhereTypeIsDataModel(this AutoPersistenceModel persistenceModel)
         {
-            return model.Where(t => t.GetCustomAttributes(typeof (DataModelAttribute), false).Any());
+            return persistenceModel.Where(t =>
+                t.GetCustomAttributes(typeof(DataModelAttribute), true).Length == 1
+                );
         }
     }
 }

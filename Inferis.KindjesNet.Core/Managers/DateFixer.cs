@@ -6,17 +6,17 @@ namespace Inferis.KindjesNet.Core.Managers
     {
         public DateTime Fix(ref int year, ref int month, ref int day)
         {
-            throw new NotImplementedException();
+            return new DateTime(year, month, day);
         }
 
         public DateTime Fix(int year, int month, int day)
         {
-            throw new NotImplementedException();
+            return new DateTime(year, month, day);
         }
 
         public DateTime Fix(DateTime date)
         {
-            throw new NotImplementedException();
+            return date;
         }
     }
 }

@@ -1,9 +1,8 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
 using Inferis.KindjesNet.Core;
 using Inferis.KindjesNet.Core.Models;
+using Inferis.KindjesNet.Core.Utils;
 
 namespace Inferis.KindjesNet.Blog.Models
 {
@@ -13,16 +12,36 @@ namespace Inferis.KindjesNet.Blog.Models
 
         public BlogPostFeedItem(Post post, int order)
         {
+            if (post == null)
+                throw new ArgumentNullException("post");
+
             this.post = post;
             Order = order;
         }
 
-        public int Order { get; private set; }
-
-        public string Provider
+        public IFeedAttachment Attachment
         {
-            get { return "dagboek"; }
+            get { return null; }
         }
+
+        public int Order { get; private set; }
+        public string Provider { get { return "Blog"; } }
+
+        public string Body { get { return post.Body.GetFirstWords(); } }
+
+        public DateTime Date { get { return post.PostDate; } }
+
+        public IEnumerable<IFeedAttachment> Attachments
+        {
+            get
+            {
+                return null;
+            }
+        }
+
+        public string Color { get { return "green"; } }
+
+        public string Icon { get { return "blog"; } }
 
         public string Url
         {
@@ -31,32 +50,12 @@ namespace Inferis.KindjesNet.Blog.Models
 
         public string Title
         {
-            get { throw new NotImplementedException(); }
+            get { return post.Title; }
         }
 
-        public string Body
+        public bool CanComment
         {
-            get { throw new NotImplementedException(); }
-        }
-
-        public DateTime Date
-        {
-            get { throw new NotImplementedException(); }
-        }
-
-        public IEnumerable<IFeedAttachment> Attachments
-        {
-            get { throw new NotImplementedException(); }
-        }
-
-        public string Color
-        {
-            get { throw new NotImplementedException(); }
-        }
-
-        public string Icon
-        {
-            get { throw new NotImplementedException(); }
+            get { return true; }
         }
     }
 }
