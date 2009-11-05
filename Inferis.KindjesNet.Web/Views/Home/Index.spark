@@ -1,0 +1,33 @@
+﻿<use namespace="System.Collections.Generic"/>
+<use namespace="Inferis.KindjesNet.Core.Utils"/>
+<use namespace="Inferis.KindjesNet.Core.Models"/>
+<viewdata model="IEnumerable[[IFeedItem]]" />
+<set Title="'Home'" /> 
+
+
+    <% 
+        
+
+
+
+        IFeedItem last = null;
+        var count = 0;
+        foreach (var item in Model) {
+          if (last != null && item.Provider != last.Provider) {
+            if (count > 2) {
+              Response.Write("<p>nog " + (count - 2) + " gelijkaardige berichten</p>");
+            }
+
+            Response.Write(item.GenerateHtml());
+            count = 0;
+          }
+          else {
+            if (count < 2) {
+              Response.Write(item.GenerateHtml());
+            }
+            count++;
+          }
+
+          last = item;
+        }
+    %>

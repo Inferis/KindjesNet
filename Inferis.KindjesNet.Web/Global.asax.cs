@@ -14,6 +14,7 @@ using Inferis.KindjesNet.Core;
 using Inferis.KindjesNet.Core.Data;
 using Inferis.KindjesNet.Core.Plugins;
 using Microsoft.Practices.Unity;
+using Spark.Web.Mvc;
 
 namespace Inferis.KindjesNet.Web
 {
@@ -85,12 +86,20 @@ namespace Inferis.KindjesNet.Web
 
         protected void Application_Start()
         {
+            InitializeViewEngines();
+
             InitializeContainer();
             InitializePlugins();
             InitializeSessionFactory();
 
             RegisterRoutes(RouteTable.Routes);
             //RouteDebug.RouteDebugger.RewriteRoutesForTesting(RouteTable.Routes);
+        }
+
+        private void InitializeViewEngines()
+        {
+            ViewEngines.Engines.Clear();
+            ViewEngines.Engines.Add(new SparkViewFactory());
         }
 
         private void InitializeSessionFactory()
