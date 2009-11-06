@@ -42,8 +42,8 @@ namespace Inferis.KindjesNet.Core.Plugins
 
                 var name = AssemblyName.GetAssemblyName(Path.Combine(actualDirectory, Path.GetFileName(directory) + ".dll")).FullName;
                 if (!compilation.Assemblies.OfType<AssemblyInfo>().Any(a => a.Assembly == name)) {
-                    compilation.Assemblies.Add(new AssemblyInfo(name));
-                    mustSave = true;
+                    //compilation.Assemblies.Add(new AssemblyInfo(name));
+                    //mustSave = true;
                 }
 
                 var baseDir = actualDirectory.Replace(AppDomain.CurrentDomain.BaseDirectory, "");
@@ -57,8 +57,8 @@ namespace Inferis.KindjesNet.Core.Plugins
                         (string.IsNullOrEmpty(path.Value) ? "" : ";") +
                         baseDir;
                     xml = xdoc.ToString();
-                    runtimeSection.SectionInformation.SetRawXml(xml);
-                    mustSave = true;
+                    //runtimeSection.SectionInformation.SetRawXml(xml);
+                    //mustSave = true;
                 }
             }
             if (mustSave)
@@ -115,7 +115,7 @@ namespace Inferis.KindjesNet.Core.Plugins
 
         public void AddViewEngine(ViewEngineCollection engines)
         {
-            engines.Add(new PluginViewEngine(this));
+            engines.Insert(0, new PluginViewEngine(this));
         }
     }
 }

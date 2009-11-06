@@ -55,6 +55,14 @@
       <SpecificVersion>False</SpecificVersion>
       <HintPath>..\Libaries\NHibernate.Linq.dll</HintPath>
     </Reference>
+    <Reference Include="Spark, Version=1.0.0.0, Culture=neutral, PublicKeyToken=7f8549eed921a12c, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\Libaries\Spark.dll</HintPath>
+    </Reference>
+    <Reference Include="Spark.Web.Mvc, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\Libaries\Spark.Web.Mvc.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.ComponentModel.Composition, Version=2009.7.8.0, Culture=neutral, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
@@ -115,6 +123,7 @@
     <Compile Include="Mvc\Controllers\ControllerWithKids.cs" />
     <Compile Include="Mvc\DefaultRouteProvider.cs" />
     <Compile Include="Mvc\Markup\KidsHtmlExtensions.cs" />
+    <Compile Include="Mvc\Spark\PluginDescriptorBuilder.cs" />
     <Compile Include="Plugins\IFeedItemProvider.cs" />
     <Compile Include="Plugins\IMappingConfigurator.cs" />
     <Compile Include="Plugins\IPluginBootstrapper.cs" />
