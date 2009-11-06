@@ -106,8 +106,7 @@
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Views\Blog\Post.aspx">
-    </EmbeddedResource>
+    <None Include="Views\Blog\Post.spark" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Service References\OldServices.Blog\blogbackend.disco" />
@@ -146,6 +145,7 @@
   -->
   <PropertyGroup>
     <PostBuildEvent>xcopy /y /c /i /s $(ProjectDir)*.as?x $(SolutionDir)Inferis.KindjesNet.Web\Plugins\$(TargetName)
+xcopy /y /c /i /s $(ProjectDir)*.spark $(SolutionDir)Inferis.KindjesNet.Web\Plugins\$(TargetName)
 
 xcopy /y /c /i /s $(ProjectDir)*.config $(SolutionDir)Inferis.KindjesNet.Web\Plugins\$(TargetName)
 

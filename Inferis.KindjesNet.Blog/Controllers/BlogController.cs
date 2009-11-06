@@ -45,7 +45,9 @@ namespace Inferis.KindjesNet.Blog.Controllers
             var post = BlogManager.GetPost(year, month, day, extra);
             if (post == null)
                 return new NotFoundResult();
-            
+
+            HighlightKid("trijn");
+            HighlightKid("klaas");
             return Item(post);
         }
 

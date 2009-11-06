@@ -1,0 +1,6 @@
+<use namespace="Inferis.KindjesNet.Blog.Models.Controllers" />
+<viewdata model="ArchiveModel" />
+<set Title="Archive Month" />
+
+<h2>Archive Month</h2>
+

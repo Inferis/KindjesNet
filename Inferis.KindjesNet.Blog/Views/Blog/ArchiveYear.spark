@@ -1,0 +1,6 @@
+<use namespace="Inferis.KindjesNet.Blog.Models.Controllers" />
+<viewdata model="ArchiveModel" />
+<set Title="ArchiveDay" />
+
+<h2>ArchiveDay</h2>
+
