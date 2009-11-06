@@ -99,8 +99,8 @@
     <Compile Include="Data\IUnitOfWorkContext.cs" />
     <Compile Include="Data\Repository.cs" />
     <Compile Include="Data\HttpContextBasedUnitOfWorkContext.cs" />
-    <Compile Include="DateExtensions.cs" />
-    <Compile Include="ItemWithUrlExtensions.cs" />
+    <Compile Include="Utils\DateExtensions.cs" />
+    <Compile Include="Utils\ItemWithUrlExtensions.cs" />
     <Compile Include="ItemWithUrlTypeAttribute.cs" />
     <Compile Include="IWithContainer.cs" />
     <Compile Include="Managers\HomepageManager.cs" />

@@ -19,8 +19,7 @@ namespace Inferis.KindjesNet.Core.Utils
             var arrayIndex = 0;
             var inside = false;
 
-            for (var i = 0; i < html.Length; i++) {
-                var let = html[i];
+            foreach (var let in html) {
                 if (let == '<') {
                     inside = true;
                     continue;

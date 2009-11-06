@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace Inferis.KindjesNet.Core
+namespace Inferis.KindjesNet.Core.Utils
 {
     public static class DateExtensions
     {
