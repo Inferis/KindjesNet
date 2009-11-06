@@ -1,6 +1,13 @@
 <use namespace="Inferis.KindjesNet.Blog.Models.Controllers" />
 <viewdata model="ArchiveModel" />
-<set Title="ArchiveDay" />
+<set Title="'Dagboek op ' + Model.Day + '/' + Model.Month + '/' + Model.Year" />
 
-<h2>ArchiveDay</h2>
+<h2>Berichten op ${Model.Day}/${Model.Month}/${Model.Year}</h2>
+
+<p>${Model.Posts.Count()} berichten:</p>
+<ul>
+	<for each="var post in Model.Posts">
+	    <li><a href="blog/${post.Slug}">${post.Title}</a></li>
+	</for>
+</ul>
 

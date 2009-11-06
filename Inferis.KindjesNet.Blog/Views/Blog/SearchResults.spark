@@ -1,0 +1,9 @@
+<viewdata model="IEnumerable<Inferis.KindjesNet.Blog.Models.Post>" />
+<set title="'Gezocht in dagboek'" />
+<p>
+    ${Model.Count()} berichtjes gevonden:</p>
+<ul>
+    <for each="var post in Model.OrderBy(p => p.PostDate)">
+        <li>${post.PostDate.ToShortDateString()}: <a href="../${post.PostDateForUrl()}/blog/${Html.Encode(post.Slug)}">${Html.Encode(post.Title)}</a></li>
+    </for>
+</ul>

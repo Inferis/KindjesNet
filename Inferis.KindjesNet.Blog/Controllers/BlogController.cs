@@ -7,11 +7,11 @@ using Inferis.KindjesNet.Blog.Managers;
 using Inferis.KindjesNet.Blog.Models;
 using Inferis.KindjesNet.Blog.Models.Controllers;
 using Inferis.KindjesNet.Blog.OldServices.Blog;
-using Inferis.KindjesNet.Core;
 using Inferis.KindjesNet.Core.Managers;
 using Inferis.KindjesNet.Core.Models;
 using Inferis.KindjesNet.Core.Mvc;
 using Inferis.KindjesNet.Core.Mvc.Controllers;
+using Inferis.KindjesNet.Core.Utils;
 using Microsoft.Practices.Unity;
 
 namespace Inferis.KindjesNet.Blog.Controllers

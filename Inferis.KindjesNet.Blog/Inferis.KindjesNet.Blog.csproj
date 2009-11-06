@@ -116,12 +116,10 @@
       <Generator>WCF Proxy Generator</Generator>
       <LastGenOutput>Reference.cs</LastGenOutput>
     </None>
-    <Content Include="Views\Blog\ArchiveDay.aspx" />
-    <Content Include="Views\Blog\ArchiveMonth.aspx" />
-    <Content Include="Views\Blog\ArchiveYear.aspx" />
-    <EmbeddedResource Include="Views\Blog\Search.aspx" />
-    <EmbeddedResource Include="Views\Blog\SearchResults.aspx" />
-    <EmbeddedResource Include="Views\Blog\Import.aspx" />
+    <None Include="Views\Blog\ArchiveYear.spark" />
+    <None Include="Views\Blog\Import.spark" />
+    <None Include="Views\Blog\Search.spark" />
+    <None Include="Views\Blog\SearchResults.spark" />
     <Content Include="Views\Web.config" />
   </ItemGroup>
   <ItemGroup>
@@ -131,6 +129,8 @@
     <None Include="app.config" />
     <None Include="Properties\DataSources\System.Data.DataSet.datasource" />
     <None Include="Service References\OldServices.Blog\blogbackend.wsdl" />
+    <None Include="Views\Blog\ArchiveMonth.spark" />
+    <None Include="Views\Blog\ArchiveDay.spark" />
   </ItemGroup>
   <ItemGroup>
     <WCFMetadataStorage Include="Service References\OldServices.Blog\" />

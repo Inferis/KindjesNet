@@ -1,0 +1,8 @@
+<set Title="'Zoeken in dagboek'" />
+
+<form method="get">
+
+	!{Html.TextBox("q")}
+	<input type=submit />
+
+</form>

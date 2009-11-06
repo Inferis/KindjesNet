@@ -1,6 +1,13 @@
 <use namespace="Inferis.KindjesNet.Blog.Models.Controllers" />
 <viewdata model="ArchiveModel" />
-<set Title="Archive Month" />
+<set Title="'Dagboek op ' + Model.Month + '/' + Model.Year" />
 
-<h2>Archive Month</h2>
+<h2>Berichten op ${Model.Month}/${Model.Year}</h2>
+
+<p>${Model.Posts.Count()} berichten:</p>
+<ul>
+	<for each="var post in Model.Posts">
+	    <li><a href="${post.GenerateUrl()}">${post.Title}</a></li>
+	</for>
+</ul>
 
