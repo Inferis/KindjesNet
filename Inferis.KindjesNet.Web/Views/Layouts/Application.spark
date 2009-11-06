@@ -3,6 +3,8 @@
 <head runat="server">
     <title>${Title} - kindjes.net</title>
     <link href="~/Content/kindjes_net.css" rel="stylesheet" type="text/css" />
+	<script src="~/Scripts/typeface-0.13.js"></script>
+	<script src="~/Scripts/nimbussantcelig_regular.typeface.js"></script>
 </head>
 
 <body>

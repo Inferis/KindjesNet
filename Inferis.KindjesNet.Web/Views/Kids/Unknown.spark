@@ -1,0 +1,6 @@
+<viewdata model="string">
+<set Title="'Onbekend kind'" />
+
+<h2>Onbekend kind</h2>
+
+<p>Het kindje met de naam '${Model}' kennen we hier niet.</p>

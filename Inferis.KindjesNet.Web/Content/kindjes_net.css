@@ -260,3 +260,12 @@ hr
     margin: 10px 0;
     border-bottom: 1px dotted black;
 }
+
+h2 
+{
+    color: #ff117b;
+    font-family: NimbusSanTCELig, helvetica, Arial;
+    letter-spacing: -1px;
+    font-size: 27px;
+    font-weight: normal;
+}

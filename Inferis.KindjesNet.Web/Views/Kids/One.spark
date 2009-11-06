@@ -1,8 +1,7 @@
-<set Title="'Kindje'" />
+<viewdata model="Kid">
+<set Title="Model.Name" />
 
-<h2>Kindpagina</h2>
-
-<p>Pagina van een kind.</p>
+<h2 class="typeface-js" >${Model.Name}</h2>
 
 <p>Foto.</p>
 <p>Allerlei gegevens (ala kind & gezin).</p>

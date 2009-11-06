@@ -164,13 +164,11 @@
     <Content Include="Views\Account\Register.aspx" />
     <Content Include="Views\Home\About.aspx" />
     <None Include="Views\Home\Index.spark" />
+    <None Include="Views\Kids\Unknown.spark" />
     <None Include="Views\Kids\One.spark" />
     <None Include="Views\Layouts\Application.spark" />
     <None Include="Views\Shared\_global.spark" />
     <None Include="Views\Layouts\_Footer.spark" />
-    <Content Include="Views\Shared\Error.aspx" />
-    <Content Include="Views\Shared\LogOnUserControl.ascx" />
-    <Content Include="Views\Shared\Site.Master" />
     <Content Include="Views\Web.config" />
   </ItemGroup>
   <ItemGroup>
@@ -185,7 +183,7 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
-    <Folder Include="Models\" />
+    <Folder Include="Controllers\Models\" />
     <Folder Include="Plugins\" />
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
