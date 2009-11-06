@@ -86,7 +86,7 @@ namespace Inferis.KindjesNet.Web
 
         protected void Application_Start()
         {
-            InitializeViewEngines();
+            //InitializeViewEngines();
 
             InitializeContainer();
             InitializePlugins();

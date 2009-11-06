@@ -254,3 +254,9 @@ div.feeditem a.thdown
     background: url(img/thdown.png) center left no-repeat;
     padding-left: 18px;
 }
+
+hr 
+{
+    margin: 10px 0;
+    border-bottom: 1px dotted black;
+}

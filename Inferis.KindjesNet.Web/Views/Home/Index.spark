@@ -4,30 +4,26 @@
 <viewdata model="IEnumerable[[IFeedItem]]" />
 <set Title="'Home'" /> 
 
+<var last="null" type="IFeedItem"/>
+<var count="0"/>
+<var max="3"/>
 
-    <% 
-        
+<for each="var item in Model">
+	<if condition="last != null && item.Provider != last.Provider">
+		<if condition="count > max">
+			<p>Nog ${count-max} gelijkaardige berichten</p>
+		</if>
+		!{item.GenerateHtml()}
+		<set count="1"/>
+	<else/>
+		<if condition="count < max">
+			!{item.GenerateHtml()}
+		</if>
+		<set count="count + 1"/>
+	</if>
+	<set last="item"/>
+</for>
 
-
-
-        IFeedItem last = null;
-        var count = 0;
-        foreach (var item in Model) {
-          if (last != null && item.Provider != last.Provider) {
-            if (count > 2) {
-              Response.Write("<p>nog " + (count - 2) + " gelijkaardige berichten</p>");
-            }
-
-            Response.Write(item.GenerateHtml());
-            count = 0;
-          }
-          else {
-            if (count < 2) {
-              Response.Write(item.GenerateHtml());
-            }
-            count++;
-          }
-
-          last = item;
-        }
-    %>
+<if condition="count > max">
+	<p>Nog ${count-2} gelijkaardige berichten</p>
+</if>
