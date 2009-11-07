@@ -20,6 +20,7 @@ namespace Inferis.KindjesNet.Core
             Container.RegisterType<IKidManager, KidManager>();
             Container.RegisterType<IHomepageManager, HomepageManager>();
             Container.RegisterType<ISpiderManager, SpiderManager>();
+            Container.RegisterType<IMigrationManager, MigrationManager>();
         }
 
     }

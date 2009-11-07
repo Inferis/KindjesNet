@@ -3,7 +3,6 @@ using System.ComponentModel.Composition;
 using FluentNHibernate.Automapping;
 using FluentNHibernate.Cfg;
 using FluentNHibernate.Conventions;
-using Inferis.KindjesNet.Core.Models;
 using Inferis.KindjesNet.Core.Plugins;
 
 namespace Inferis.KindjesNet.Core

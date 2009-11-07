@@ -6,5 +6,6 @@ namespace Inferis.KindjesNet.Core.Managers
     public interface IKidManager
     {
         List<Kid> GetAll();
+        Kid GetKidByTag(string tag);
     }
 }

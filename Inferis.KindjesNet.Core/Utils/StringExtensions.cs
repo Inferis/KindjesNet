@@ -1,13 +1,27 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Text.RegularExpressions;
-
-namespace Inferis.KindjesNet.Core.Utils
+﻿namespace Inferis.KindjesNet.Core.Utils
 {
     public static class StringExtensions
     {
+        public static string ToUpperFirst(this string source)
+        {
+            if (string.IsNullOrEmpty(source))
+                return source;
+
+            return string.Concat(
+                source.Substring(0, 1).ToUpper(),
+                source.Substring(1));
+        }
+
+        public static string ToLowerFirst(this string source)
+        {
+            if (string.IsNullOrEmpty(source))
+                return source;
+
+            return string.Concat(
+                source.Substring(0, 1).ToLower(),
+                source.Substring(1));
+        }
+
         public static string GetFirstWords(this string html)
         {
             return html.StripAllTags().Substring(0, 200);

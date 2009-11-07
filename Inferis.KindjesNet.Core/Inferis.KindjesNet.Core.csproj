@@ -47,6 +47,14 @@
       <SpecificVersion>False</SpecificVersion>
       <HintPath>..\Libaries\Microsoft.Practices.Unity.dll</HintPath>
     </Reference>
+    <Reference Include="Migrator, Version=0.9.0.1995, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\Libaries\Migrator.dll</HintPath>
+    </Reference>
+    <Reference Include="Migrator.Framework, Version=0.9.0.1994, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\Libaries\Migrator.Framework.dll</HintPath>
+    </Reference>
     <Reference Include="NHibernate, Version=2.1.0.4000, Culture=neutral, PublicKeyToken=aa95f207798dfdb4, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
       <HintPath>..\Libaries\NHibernate.dll</HintPath>
@@ -99,6 +107,11 @@
     <Compile Include="Data\IUnitOfWorkContext.cs" />
     <Compile Include="Data\Repository.cs" />
     <Compile Include="Data\HttpContextBasedUnitOfWorkContext.cs" />
+    <Compile Include="Managers\IMigrationManager.cs" />
+    <Compile Include="Managers\MigrationManager.cs" />
+    <Compile Include="Plugins\SqlMigrationsProviderBase.cs" />
+    <Compile Include="Plugins\IMigrationsProvider.cs" />
+    <Compile Include="Plugins\MigrationsProviderBase.cs" />
     <Compile Include="Utils\DateExtensions.cs" />
     <Compile Include="Utils\ItemWithUrlExtensions.cs" />
     <Compile Include="ItemWithUrlTypeAttribute.cs" />

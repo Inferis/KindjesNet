@@ -17,5 +17,10 @@ namespace Inferis.KindjesNet.Core.Managers
         {
             return Repository.Query<Kid>().OrderBy(k => k.Birthdate).ToList();
         }
+
+        public Kid GetKidByTag(string tag)
+        {
+            return Repository.Query<Kid>().FirstOrDefault(k => k.Tag == tag);
+        }
     }
 }
