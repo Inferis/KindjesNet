@@ -3,6 +3,7 @@ using System.ComponentModel.Composition;
 using FluentNHibernate.Automapping;
 using FluentNHibernate.Cfg;
 using FluentNHibernate.Conventions;
+using Inferis.KindjesNet.Core.Models;
 using Inferis.KindjesNet.Core.Plugins;
 
 namespace Inferis.KindjesNet.Core
@@ -14,7 +15,6 @@ namespace Inferis.KindjesNet.Core
         {
             config.AutoMappings.Add(AutoMap.AssemblyOf <CoreMappingConfigurator>()
                 .WhereTypeIsDataModel()
-                //.IgnoreBase<KidsRelated>()
                 .Conventions.Setup(defaultConventions));
         }
     }

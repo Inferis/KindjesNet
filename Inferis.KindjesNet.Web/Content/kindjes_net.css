@@ -65,7 +65,7 @@ A
 {
     display: block;
     width: 270px;
-    height: 100px;
+    height: 130px;
     background: url(img/title.png) center center no-repeat;
     text-indent: -1000px;
 }
@@ -176,6 +176,15 @@ span.fluo.pink, span.fluo.pink span
     background-image: url(img/fluo-pink.png);
 }
 
+span.fluo.purple, span.fluo.purple span
+{
+    background-image: url(img/fluo-purple.png);
+}
+
+span.fluo.blue, span.fluo.blue span
+{
+    background-image: url(img/fluo-blue.png);
+}
 
 /* feeditem */
 
@@ -264,9 +273,10 @@ hr
 
 h2 
 {
-    color: #ff117b;
-    font-family: NimbusSanTCELig, helvetica, Arial;
-    letter-spacing: -1px;
-    font-size: 27px;
+    color: Black;
+    dcolor: #ff117b;
+    font-family: Chauncy Deluxxe, NimbusSanTCELig, helvetica, Arial;
+    letter-spacing: 0px;
+    font-size: 32px;
     font-weight: normal;
 }

@@ -6,7 +6,7 @@ namespace Inferis.KindjesNet.Blog.Models
 {
     [DataModel]
     [ItemWithUrlType("blog")]
-    public class Post : KidsRelated, IItemWithUrl
+    public class Post : EntityWithKids, IItemWithUrl
     {
         public virtual Guid Id { get; set; }
 

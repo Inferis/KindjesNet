@@ -113,7 +113,7 @@ namespace Inferis.KindjesNet.Web
                 .Database(MsSqlConfiguration.MsSql2005.ConnectionString(c => c.FromConnectionStringWithKey("KindjesNet")));
 
             Action<IConventionFinder> defaultConventions = f => {
-                f.Add(PrimaryKey.Name.Is(x => x.Property.DeclaringType.Name + "Id"));
+                f.Add(PrimaryKey.Name.Is(x => x.Property.ReflectedType.Name + "Id"));
                 f.Add(ForeignKey.EndsWith("Id"));
             };
 

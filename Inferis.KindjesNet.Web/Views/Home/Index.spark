@@ -13,11 +13,12 @@
 		<if condition="count > max">
 			<p>Nog ${count-max} gelijkaardige berichten</p>
 		</if>
-		!{item.GenerateHtml()}
+		
+		<FeedItem/>
 		<set count="1"/>
 	<else/>
 		<if condition="count < max">
-			!{item.GenerateHtml()}
+			<FeedItem />
 		</if>
 		<set count="count + 1"/>
 	</if>

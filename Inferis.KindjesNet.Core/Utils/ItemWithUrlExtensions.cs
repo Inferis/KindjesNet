@@ -14,7 +14,7 @@ namespace Inferis.KindjesNet.Core.Utils
                 .FirstOrDefault();
             if (attr != null)
                 type = attr.Type;
-            return string.Concat("~/", item.DateForUrl.FormatForUrl(), "/", type, "/", item.Slug);
+            return string.Concat(item.DateForUrl.FormatForUrl(), "/", type, "/", item.Slug);
         }
     }
 }

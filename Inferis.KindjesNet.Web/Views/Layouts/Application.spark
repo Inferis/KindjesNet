@@ -3,8 +3,9 @@
 <head runat="server">
     <title>${Title} - kindjes.net</title>
     <link href="~/Content/kindjes_net.css" rel="stylesheet" type="text/css" />
-	<script src="~/Scripts/typeface-0.13.js"></script>
-	<script src="~/Scripts/nimbussantcelig_regular.typeface.js"></script>
+	<script src="~/Scripts/cufon-yui.js"></script>
+	<script src="~/Scripts/Chauncy_Deluxxe_400.font.js"></script>
+	<script type="text/javascript">Cufon.replace('h2')('.feeditem .title');</script>
 </head>
 
 <body>
@@ -16,7 +17,7 @@
         </div>
         <div id="mid">
             <div id="labels">
-				!{Html.GenerateKidsLabels()}
+				<KidsLabels />
             </div>
 
             <div id="content">
@@ -28,5 +29,6 @@
             </div>
         </div>
     </div>
+	<script type="text/javascript">Cufon.now();</script>
 </body>
 </html>

@@ -18,7 +18,7 @@ namespace Inferis.KindjesNet.Vimeo
             config.AutoMappings.Add(
                 AutoMap.AssemblyOf<VimeoMappingConfigurator>()
                     .WhereTypeIsDataModel()
-                    .IgnoreBase<KidsRelated>()
+                    .IgnoreBase<EntityWithKids>()
                     //.OverrideAll(s => s.IgnoreProperty(v => v.DateForUrl))
                     .Conventions.Setup(defaultConventions))
                 .ExportTo(@"c:\hbm");

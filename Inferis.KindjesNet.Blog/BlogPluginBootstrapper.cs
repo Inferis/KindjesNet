@@ -15,6 +15,7 @@ namespace Inferis.KindjesNet.Blog
         public void Boot()
         {
             Container.RegisterType<IBlogManager, BlogManager>();
+            Container.RegisterType<IBlogImporter, BlogImporter>();
         }
 
     }

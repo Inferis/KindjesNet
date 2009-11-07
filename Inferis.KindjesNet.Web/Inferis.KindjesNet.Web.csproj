@@ -143,7 +143,10 @@
     <Content Include="Content\kindjes_net.css" />
     <Content Include="Default.aspx" />
     <Content Include="Global.asax" />
+    <Content Include="Scripts\Chauncy_Deluxxe_400.font.js" />
+    <Content Include="Scripts\cufon-yui.js" />
     <Content Include="Scripts\nimbussandultlig_regular.typeface.js" />
+    <Content Include="Scripts\nimbussantcelig_regular.typeface.js" />
     <Content Include="Scripts\typeface-0.13.js" />
     <Content Include="Views\GlobalArchive\Day.aspx" />
     <Content Include="Views\GlobalArchive\Month.aspx" />
@@ -165,12 +168,13 @@
     <Content Include="Views\Account\ChangePasswordSuccess.aspx" />
     <Content Include="Views\Account\LogOn.aspx" />
     <Content Include="Views\Account\Register.aspx" />
-    <Content Include="Views\Home\About.aspx" />
+    <None Include="Views\Home\_FeedItem.spark" />
     <None Include="Views\Home\Index.spark" />
     <None Include="Views\Kids\Unknown.spark" />
     <None Include="Views\Kids\One.spark" />
     <None Include="Views\Layouts\Application.spark" />
     <None Include="Views\Migration\Index.spark" />
+    <None Include="Views\Shared\_KidsLabels.spark" />
     <None Include="Views\Shared\_global.spark" />
     <None Include="Views\Layouts\_Footer.spark" />
     <Content Include="Views\Web.config" />

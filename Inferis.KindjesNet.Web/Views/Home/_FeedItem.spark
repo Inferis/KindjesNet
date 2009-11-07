@@ -1,0 +1,16 @@
+﻿
+
+<div class='feeditem'>
+    <p class='content'>
+        <div class='title'><span class='fluo ${item.Color}'><span><a href='~/!{item.Url}'>${item.Title}</a></span></span></div>
+        <img src='~/Content/img/dummy.jpg' class='thumbnail'>
+        ${item.Body}
+    </p>
+    <p class='actions'>
+        <span class='info'>
+            <a href='' class='icon ${item.Icon}' title='${item.Provider}'></a> 
+            <a href='' class='date'>10 uur geleden</a> op <a href='' class='via'>${item.Provider}</a>
+        </span>
+        - <a href=''>reageer</a> - <a href='' class='thup'>is tof!</a>
+    </p>
+</div>

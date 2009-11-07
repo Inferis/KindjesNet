@@ -109,6 +109,11 @@
     <Compile Include="Data\HttpContextBasedUnitOfWorkContext.cs" />
     <Compile Include="Managers\IMigrationManager.cs" />
     <Compile Include="Managers\MigrationManager.cs" />
+    <Compile Include="Migrations\Core004_AddSettingsTable.cs" />
+    <Compile Include="Migrations\Core003_AddFieldsToKid.cs" />
+    <Compile Include="Migrations\Core002_AddGodParentTable.cs" />
+    <Compile Include="Migrations\Core001_Initial.cs" />
+    <Compile Include="Models\EntityWithId.cs" />
     <Compile Include="Plugins\SqlMigrationsProviderBase.cs" />
     <Compile Include="Plugins\IMigrationsProvider.cs" />
     <Compile Include="Plugins\MigrationsProviderBase.cs" />
@@ -131,11 +136,10 @@
     <Compile Include="Models\IItemWithUrl.cs" />
     <Compile Include="Models\ISpider.cs" />
     <Compile Include="Models\Kid.cs" />
-    <Compile Include="Models\KidsRelated.cs" />
+    <Compile Include="Models\EntityWithKids.cs" />
     <Compile Include="Models\User.cs" />
     <Compile Include="Mvc\Controllers\ControllerWithKids.cs" />
     <Compile Include="Mvc\DefaultRouteProvider.cs" />
-    <Compile Include="Mvc\Markup\KidsHtmlExtensions.cs" />
     <Compile Include="Mvc\Spark\PluginDescriptorBuilder.cs" />
     <Compile Include="Plugins\IFeedItemProvider.cs" />
     <Compile Include="Plugins\IMappingConfigurator.cs" />
@@ -151,7 +155,6 @@
     <Compile Include="Unity\DeepBuildupStrategy.cs" />
     <Compile Include="Managers\DateFixer.cs" />
     <Compile Include="Managers\IDateFixer.cs" />
-    <Compile Include="Utils\FeedItemExtensions.cs" />
     <Compile Include="Utils\StringExtensions.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

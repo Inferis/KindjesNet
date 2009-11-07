@@ -1,0 +1,10 @@
+﻿<viewdata Kids="IEnumerable<Kid>" HighlightedKids="IEnumerable<Kid>" />
+
+<if condition="Kids != null" >
+	<ul class="kids-labels">
+		<for each="var kid in Kids">
+			<li class="label-${kid.Tag}">!{Html.ActionLink(kid.Name, kid.Tag, "kids", null, new { Class = HighlightedKids.Any(k => k.Tag == kid.Tag) ? "hl" : ""})}</li>
+		</for>
+	</ul>
+</if>
+ 

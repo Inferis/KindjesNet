@@ -24,7 +24,7 @@ namespace Inferis.KindjesNet.Blog.Controllers
         public IBlogManager BlogManager { get; set; }
 
         [Dependency]
-        public IUserManager UserManager { get; set; }
+        public IBlogImporter BlogImporter { get; set; }
 
         public ActionResult OldPost()
         {
@@ -46,10 +46,10 @@ namespace Inferis.KindjesNet.Blog.Controllers
             if (post == null)
                 return new NotFoundResult();
 
-            HighlightKid("trijn");
-            HighlightKid("klaas");
+            HighlightKids(post);
             return Item(post);
         }
+
 
         private ActionResult Item(Post post)
         {
@@ -74,32 +74,8 @@ namespace Inferis.KindjesNet.Blog.Controllers
         public ActionResult Import()
         {
             // get users cache first
-            var users = new Dictionary<int, User>();
-            foreach (var user in UserManager.GetAllLegacyUsers()) {
-                users[(int)user.LegacyId] = user;
-            }
+            BlogImporter.Import();
 
-            using (var client = new BlogBackendSoapClient()) {
-                try {
-                    var data = client.GetArticlesByBlog(1);
-
-                    foreach (DataRow row in data.Tables[0].Rows) {
-                        var id = Convert.ToInt32(row["ArticleId"]);
-                        var post = BlogManager.GetPostByLegacyId(id) ?? new Post { LegacyId = id };
-
-                        post.Title = Convert.ToString(row["Title"]);
-                        post.Body = Convert.ToString(row["Body"]);
-                        post.PostDate = Convert.ToDateTime(row["Stamp"]).ToUniversalTime();
-                        post.Author = users[Convert.ToInt32(row["PosterId"])];
-                        post.Slug = BlogManager.Slugify(post.Title, post.PostDate, post.Id);
-
-                        BlogManager.SavePost(post);
-                    }
-                }
-                catch {
-                    client.Abort();
-                }
-            }
 
             return View();
         }

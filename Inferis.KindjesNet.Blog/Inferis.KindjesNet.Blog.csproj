@@ -89,7 +89,9 @@
     <Compile Include="BlogMappingConfigurator.cs" />
     <Compile Include="Controllers\BlogController.cs" />
     <Compile Include="BlogFeedItemProvider.cs" />
+    <Compile Include="Managers\BlogImporter.cs" />
     <Compile Include="Managers\BlogManager.cs" />
+    <Compile Include="Managers\IBlogImporter.cs" />
     <Compile Include="Managers\IBlogManager.cs" />
     <Compile Include="BlogPluginBootstrapper.cs" />
     <Compile Include="Migrations\Blog001_Initial.cs" />

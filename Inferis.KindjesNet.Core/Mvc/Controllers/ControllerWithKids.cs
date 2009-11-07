@@ -22,6 +22,17 @@ namespace Inferis.KindjesNet.Core.Mvc.Controllers
             get { return ViewData["HighlightedKids"] as IList<Kid>; }
         }
 
+        protected IEnumerable<string> HighlightKids(EntityWithKids entity)
+        {
+            var touched = new List<string>();
+            foreach (var kid in entity.Kids) {
+                HighlightKid(kid.Tag);
+                touched.Add(kid.Tag);
+            }
+
+            return touched;
+        }
+
         protected override void Initialize(System.Web.Routing.RequestContext requestContext)
         {
             base.Initialize(requestContext);

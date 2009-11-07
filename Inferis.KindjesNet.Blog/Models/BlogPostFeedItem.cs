@@ -39,7 +39,7 @@ namespace Inferis.KindjesNet.Blog.Models
             }
         }
 
-        public string Color { get { return "green"; } }
+        public string Color { get { return "blue"; } }
 
         public string Icon { get { return "blog"; } }
 

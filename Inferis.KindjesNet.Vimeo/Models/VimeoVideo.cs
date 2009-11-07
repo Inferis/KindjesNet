@@ -6,7 +6,7 @@ namespace Inferis.KindjesNet.Vimeo.Models
 {
     [DataModel]
     [ItemWithUrlType("vimeo")]
-    public class VimeoVideo : KidsRelated, IItemWithUrl
+    public class VimeoVideo : EntityWithKids, IItemWithUrl
     {
         public virtual Guid Id { get; set; }
         public virtual string Title { get; set; }
