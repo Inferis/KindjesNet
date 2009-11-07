@@ -43,6 +43,10 @@
       <SpecificVersion>False</SpecificVersion>
       <HintPath>..\Libaries\Microsoft.Practices.Unity.dll</HintPath>
     </Reference>
+    <Reference Include="Migrator.Framework, Version=0.9.0.1994, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\Libaries\Migrator.Framework.dll</HintPath>
+    </Reference>
     <Reference Include="NHibernate, Version=2.1.0.4000, Culture=neutral, PublicKeyToken=aa95f207798dfdb4, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
       <HintPath>..\Libaries\NHibernate.dll</HintPath>
@@ -88,6 +92,8 @@
     <Compile Include="Managers\BlogManager.cs" />
     <Compile Include="Managers\IBlogManager.cs" />
     <Compile Include="BlogPluginBootstrapper.cs" />
+    <Compile Include="Migrations\Blog001_Initial.cs" />
+    <Compile Include="Migrations\MigrationProvider.cs" />
     <Compile Include="Models\BlogPostFeedItem.cs" />
     <Compile Include="Models\Controllers\ArchiveModel.cs" />
     <Compile Include="Models\Post.cs" />

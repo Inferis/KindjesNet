@@ -103,6 +103,7 @@
     <Compile Include="Controllers\GlobalArchiveController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\KidsController.cs" />
+    <Compile Include="Controllers\MigrationController.cs" />
     <Compile Include="Controllers\SpiderController.cs" />
     <Compile Include="Default.aspx.cs">
       <DependentUpon>Default.aspx</DependentUpon>
@@ -142,6 +143,8 @@
     <Content Include="Content\kindjes_net.css" />
     <Content Include="Default.aspx" />
     <Content Include="Global.asax" />
+    <Content Include="Scripts\nimbussandultlig_regular.typeface.js" />
+    <Content Include="Scripts\typeface-0.13.js" />
     <Content Include="Views\GlobalArchive\Day.aspx" />
     <Content Include="Views\GlobalArchive\Month.aspx" />
     <Content Include="Views\GlobalArchive\Year.aspx" />
@@ -167,6 +170,7 @@
     <None Include="Views\Kids\Unknown.spark" />
     <None Include="Views\Kids\One.spark" />
     <None Include="Views\Layouts\Application.spark" />
+    <None Include="Views\Migration\Index.spark" />
     <None Include="Views\Shared\_global.spark" />
     <None Include="Views\Layouts\_Footer.spark" />
     <Content Include="Views\Web.config" />

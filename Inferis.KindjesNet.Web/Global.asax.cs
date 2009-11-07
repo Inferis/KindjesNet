@@ -75,6 +75,11 @@ namespace Inferis.KindjesNet.Web
                 new { controller = "Spider", action = "Index" }  // Parameter defaults
                 );
 
+            routes.MapRoute(
+                "Migrate",                                              // Route name
+                "migrate",                           // URL with parameters
+                new { controller = "Migration", action = "Index" }  // Parameter defaults
+                );
 
             routes.MapRoute(
                 "Default",                                              // Route name

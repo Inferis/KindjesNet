@@ -131,7 +131,8 @@ A
 
 #content
 {
-    color: #555;
+    color: rgba(0, 0, 0, 0.6);
+    text-shadow: rgba(255, 255, 255, 0.85) 1px 1px 1px; 
 }
 
 #content img

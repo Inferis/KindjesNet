@@ -1,8 +1,8 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using Inferis.KindjesNet.Core;
 using Inferis.KindjesNet.Core.Models;
+using Inferis.KindjesNet.Core.Utils;
 
 namespace Inferis.KindjesNet.Vimeo.Models
 {
