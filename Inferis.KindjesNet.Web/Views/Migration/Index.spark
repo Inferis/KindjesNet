@@ -1,0 +1,10 @@
+﻿<viewdata model="IEnumerable<string>" />
+<h2>Migrations ran</h2>
+
+<p>Log:</p>
+
+<p>
+<for each="var line in Model">
+	${line}<br/>
+</for>
+</p>
