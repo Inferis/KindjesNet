@@ -10,13 +10,13 @@ namespace Inferis.KindjesNet.Core.Migrations
         public override void Up()
         {
             Database.AddTable("GodParent",
-                new Column("GodParentId", DbType.Guid, ColumnProperty.PrimaryKey, Guid.NewGuid()),
+                new Column("GodParentId", DbType.Guid, ColumnProperty.PrimaryKey, "newid()"),
                 new Column("Name", DbType.String, 100, ColumnProperty.NotNull),
                 new Column("Info", DbType.String, -1, ColumnProperty.Null),
                 new Column("PictureUrl", DbType.String, 250, ColumnProperty.Null),
                 new Column("UserId", DbType.Guid, ColumnProperty.ForeignKey | ColumnProperty.Null)
                 );
-            Database.AddForeignKey("FK_GodParent_User_UserId", "GodParent", "UserId", "User", "UserId");
+            Database.AddForeignKey("FK_GodParent_User_UserId", "GodParent", "UserId", "[User]", "UserId");
 
             Database.AddTable("KidGodParent",
                 new Column("KidId", DbType.Guid, ColumnProperty.PrimaryKey | ColumnProperty.ForeignKey),

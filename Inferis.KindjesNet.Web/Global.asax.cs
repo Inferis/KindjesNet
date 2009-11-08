@@ -2,24 +2,30 @@
 using System.Collections.Generic;
 using System.ComponentModel.Composition;
 using System.Diagnostics;
+using System.IO;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
 using System.Web.Routing;
+using System.Xml.Schema;
 using FluentNHibernate.Cfg;
 using FluentNHibernate.Cfg.Db;
 using FluentNHibernate.Conventions;
 using FluentNHibernate.Conventions.Helpers;
 using Inferis.KindjesNet.Core;
 using Inferis.KindjesNet.Core.Data;
+using Inferis.KindjesNet.Core.Models;
 using Inferis.KindjesNet.Core.Plugins;
 using Microsoft.Practices.Unity;
+using NHibernate;
 using Spark.Web.Mvc;
 
 namespace Inferis.KindjesNet.Web
 {
     public class MvcApplication : HttpApplication, IWithContainer
     {
+        private Guid id;
+
         private PluginContainer pluginsContainer;
 
         public IUnityContainer Container
@@ -42,6 +48,21 @@ namespace Inferis.KindjesNet.Web
 
         public MvcApplication()
         {
+            id = Guid.NewGuid();
+            File.AppendAllText(@"c:\mvc\mvc.log", "New MvcApplication with id=" + id + "\r\n");
+
+            //PreRequestHandlerExecute += (sender, e) => {
+            //    File.AppendAllText(@"c:\mvc\mvc.log", "PreRequestHandlerExecute with id=" + id + "\r\n");
+            //    try {
+            //        // see if we can resolve the session
+            //        Container.Resolve<ISession>();
+            //    }
+            //    catch (ResolutionFailedException ex) {
+            //        // we can't. Initialize it.
+            //        InitializeSessionFactory(false);
+            //    }
+            //};
+
             PostRequestHandlerExecute += (sender, e) => {
                 var uow = Container.Resolve<IRepository>();
                 uow.Dispose();
@@ -91,11 +112,12 @@ namespace Inferis.KindjesNet.Web
 
         protected void Application_Start()
         {
+            File.AppendAllText(@"c:\mvc\mvc.log", "Application_Start with id=" + id + "\r\n");
             //InitializeViewEngines();
 
             InitializeContainer();
             InitializePlugins();
-            InitializeSessionFactory();
+            InitializeSessionFactory(true);
 
             RegisterRoutes(RouteTable.Routes);
             //RouteDebug.RouteDebugger.RewriteRoutesForTesting(RouteTable.Routes);
@@ -107,7 +129,7 @@ namespace Inferis.KindjesNet.Web
             ViewEngines.Engines.Add(new SparkViewFactory());
         }
 
-        private void InitializeSessionFactory()
+        private void InitializeSessionFactory(bool appStart)
         {
             var configuration = Fluently.Configure()
                 .Database(MsSqlConfiguration.MsSql2005.ConnectionString(c => c.FromConnectionStringWithKey("KindjesNet")));
@@ -115,6 +137,7 @@ namespace Inferis.KindjesNet.Web
             Action<IConventionFinder> defaultConventions = f => {
                 f.Add(PrimaryKey.Name.Is(x => x.Property.ReflectedType.Name + "Id"));
                 f.Add(ForeignKey.EndsWith("Id"));
+                f.Add(new Core.Data.ManyToManyTableNameConvention());
             };
 
             foreach (var configurator in MappingConfigurators) {
@@ -122,7 +145,12 @@ namespace Inferis.KindjesNet.Web
                 configuration.Mappings(m => config.Configure(m, defaultConventions));
             }
 
-            Container.RegisterInstance(configuration.BuildSessionFactory());
+            try {
+                Container.RegisterInstance(configuration.BuildSessionFactory());
+            }
+            catch (FluentConfigurationException ex) {
+                if (!appStart) throw;
+            }
             Container.RegisterType<IUnitOfWorkContext, HttpContextBasedUnitOfWorkContext>();
             Container.RegisterType<IRepository, Repository>();
         }
@@ -161,13 +189,52 @@ namespace Inferis.KindjesNet.Web
             }
         }
 
-        [ImportMany]
-        public IEnumerable<IPluginBootstrapper> PluginBootstrappers { get; set; }
+        [ImportMany(AllowRecomposition = true)]
+        public IEnumerable<IPluginBootstrapper> PluginBootstrappers
+        {
+            get { return HttpContext.Current.Application["PluginBootstrappers"] as IEnumerable<IPluginBootstrapper>; }
+            set
+            {
+                try {
+                    HttpContext.Current.Application.Lock();
+                    HttpContext.Current.Application["PluginBootstrappers"] = value;
+                }
+                finally {
+                    HttpContext.Current.Application.UnLock();
+                }
+            }
+        }
 
-        [ImportMany]
-        public IEnumerable<IRouteProvider> RouteProviders { get; set; }
+        [ImportMany(AllowRecomposition = true)]
+        public IEnumerable<IRouteProvider> RouteProviders
+        {
+            get { return HttpContext.Current.Application["RouteProviders"] as IEnumerable<IRouteProvider>; }
+            set
+            {
+                try {
+                    HttpContext.Current.Application.Lock();
+                    HttpContext.Current.Application["RouteProviders"] = value;
+                }
+                finally {
+                    HttpContext.Current.Application.UnLock();
+                }
+            }
+        }
 
-        [ImportMany]
-        public IEnumerable<IMappingConfigurator> MappingConfigurators { get; set; }
+        [ImportMany(AllowRecomposition = true)]
+        public IEnumerable<IMappingConfigurator> MappingConfigurators
+        {
+            get { return HttpContext.Current.Application["MappingConfigurators"] as IEnumerable<IMappingConfigurator>; }
+            set
+            {
+                try {
+                    HttpContext.Current.Application.Lock();
+                    HttpContext.Current.Application["MappingConfigurators"] = value;
+                }
+                finally {
+                    HttpContext.Current.Application.UnLock();
+                }
+            }
+        }
     }
 }

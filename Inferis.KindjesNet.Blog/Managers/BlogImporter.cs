@@ -47,8 +47,13 @@ namespace Inferis.KindjesNet.Blog.Managers
                         post.Slug = BlogManager.Slugify(post.Title, post.PostDate, post.Id);
 
                         post.Kids.Clear();
-                        foreach (var kid in kids) {
+                        foreach (var kid in kids.Where(k => k.Birthdate < post.PostDate)) {
                             if (Regex.Match(post.Body, kid.Tag, RegexOptions.IgnoreCase).Success) {
+                                post.Kids.Add(kid);
+                            }
+                        }
+                        if (!post.Kids.Any()) {
+                            foreach (var kid in kids.Where(k => k.Birthdate < post.PostDate)) {
                                 post.Kids.Add(kid);
                             }
                         }

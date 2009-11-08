@@ -97,6 +97,10 @@
       <Project>{0A2D18A4-A438-4880-AE3B-A5895428A77A}</Project>
       <Name>Inferis.API.Vimeo</Name>
     </ProjectReference>
+    <ProjectReference Include="..\Inferis.Core.Migrations\Inferis.Core.Migrations.csproj">
+      <Project>{91D25BDF-FB25-44DA-A2D5-37F13AB9B43C}</Project>
+      <Name>Inferis.Core.Migrations</Name>
+    </ProjectReference>
     <ProjectReference Include="..\Inferis.Core\Inferis.Core.csproj">
       <Project>{7DC6F24A-66DE-4F1C-898F-2895EE485B3F}</Project>
       <Name>Inferis.Core</Name>
@@ -116,6 +120,9 @@
     <EmbeddedResource Include="Views\Vimeo\Item.aspx">
     </EmbeddedResource>
     <Content Include="Views\Web.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Migrations\Scripts\Vimeo001_Initial.sql" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Content\img\" />

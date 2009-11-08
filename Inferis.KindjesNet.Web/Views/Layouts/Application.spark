@@ -6,6 +6,7 @@
 	<script src="~/Scripts/cufon-yui.js"></script>
 	<script src="~/Scripts/Chauncy_Deluxxe_400.font.js"></script>
 	<script type="text/javascript">Cufon.replace('h2')('.feeditem .title');</script>
+	<use content="head" />
 </head>
 
 <body>

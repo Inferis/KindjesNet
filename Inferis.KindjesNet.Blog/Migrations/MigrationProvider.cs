@@ -3,6 +3,7 @@ using Inferis.KindjesNet.Core.Plugins;
 
 namespace Inferis.KindjesNet.Blog.Migrations
 {
+    [PartCreationPolicy(CreationPolicy.Shared)]
     [Export(typeof(IMigrationsProvider))]
     public class BlogMigrationsProvider : SqlMigrationsProviderBase, IMigrationsProvider
     {

@@ -1,9 +1,16 @@
+<content name="head">
+	<link rel="stylesheet" href="~/Content/kid.css" type="text/css" />
+</content>
+
 <viewdata model="Kid">
 <set Title="Model.Name" />
 
-<h2 class="typeface-js" >${Model.Name}</h2>
+<h2>${Model.Name}</h2>
 
-<p>Foto.</p>
+<p>${Mark.Down(Model.Info)}</p>
+
+<img class="picture" src="~/Content/kids/${Model.Tag}.jpg" />
+
 <p>Allerlei gegevens (ala kind & gezin).</p>
 <p>Iets over meter en peter?</p>
 <p>Geboorte: info + geboortekaartje.</p>

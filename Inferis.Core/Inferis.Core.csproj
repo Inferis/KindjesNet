@@ -47,6 +47,7 @@
   <ItemGroup>
     <Compile Include="ApiValueAttribute.cs" />
     <Compile Include="ApiName.cs" />
+    <Compile Include="Extensions\TypeExtensions.cs" />
     <Compile Include="Options.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

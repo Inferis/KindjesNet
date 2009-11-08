@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.ComponentModel.Composition;
 using System.Configuration;
+using System.Linq;
 using System.Text;
 using Inferis.KindjesNet.Core.Plugins;
 using Migrator;
@@ -11,13 +12,18 @@ namespace Inferis.KindjesNet.Core.Managers
 {
     public class MigrationManager : IMigrationManager
     {
-        [ImportMany]
+        [ImportMany(AllowRecomposition = true)]
         public IEnumerable<IMigrationsProvider> Providers { get; set; }
 
         public IEnumerable<string> RunAllMigrations()
         {
             var writer = new ToBufferLogWriter();
             var logger = new Logger(true, writer);
+
+            logger.Trace("Providers:");
+            foreach (var provider in Providers.Distinct()) {
+                logger.Trace("* {0} ({1})", provider.MigrationContext, provider.GetType().Name);
+            }
 
             string connectionString = null;
             foreach (var name in new[] { "KindjesNetMigrations", "KindjesNet" }) {
@@ -30,7 +36,7 @@ namespace Inferis.KindjesNet.Core.Managers
             if (connectionString == null)
                 throw new ArgumentNullException("connectionString");
 
-            foreach (var provider in Providers) {
+            foreach (var provider in Providers.Distinct()) {
                 try {
                     logger.Trace("Migrations for {0} with context {1}...",
                                  provider.Assembly.FullName,
@@ -43,7 +49,9 @@ namespace Inferis.KindjesNet.Core.Managers
                         logger);
                     migrator.MigrateToLastVersion();
                 }
-                catch { }
+                catch (Exception ex) {
+                    logger.Exception("Migration exception", ex);
+                }
             }
 
             return writer.GetEntries();

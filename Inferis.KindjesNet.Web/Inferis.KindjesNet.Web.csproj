@@ -116,6 +116,7 @@
     <Compile Include="UnityExtensions.cs" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Content\kid.css" />
     <Content Include="Content\img\around-bg.jpg" />
     <Content Include="Content\img\dummy.jpg" />
     <Content Include="Content\img\fluo-blue.png" />

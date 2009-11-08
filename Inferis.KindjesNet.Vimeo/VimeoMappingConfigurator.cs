@@ -11,18 +11,12 @@ using Inferis.KindjesNet.Vimeo.Models;
 namespace Inferis.KindjesNet.Vimeo
 {
     [Export(typeof(IMappingConfigurator))]
-    public class VimeoMappingConfigurator : IMappingConfigurator
+    public class VimeoMappingConfigurator : DataModelMappingConfigurator
     {
-        public void Configure(MappingConfiguration config, Action<IConventionFinder> defaultConventions)
+        protected override AutoPersistenceModel FilterModels(AutoPersistenceModel model)
         {
-            config.AutoMappings.Add(
-                AutoMap.AssemblyOf<VimeoMappingConfigurator>()
-                    .WhereTypeIsDataModel()
-                    .IgnoreBase<EntityWithKids>()
-                    //.OverrideAll(s => s.IgnoreProperty(v => v.DateForUrl))
-                    .Conventions.Setup(defaultConventions))
-                .ExportTo(@"c:\hbm");
+            return base.FilterModels(model)
+                .Override<VimeoVideo>(map => map.HasManyToMany(post => post.Kids));
         }
-
     }
 }

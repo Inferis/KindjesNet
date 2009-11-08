@@ -27,6 +27,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Inferis.NMarkdown.Tests", "
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Inferis.API.Vimeo", "..\Inferis APIs\Vimeo\Inferis.API.Vimeo\Inferis.API.Vimeo.csproj", "{0A2D18A4-A438-4880-AE3B-A5895428A77A}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Inferis.Core.Migrations", "Inferis.Core.Migrations\Inferis.Core.Migrations.csproj", "{91D25BDF-FB25-44DA-A2D5-37F13AB9B43C}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -69,6 +71,10 @@ Global
 		{0A2D18A4-A438-4880-AE3B-A5895428A77A}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{0A2D18A4-A438-4880-AE3B-A5895428A77A}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{0A2D18A4-A438-4880-AE3B-A5895428A77A}.Release|Any CPU.Build.0 = Release|Any CPU
+		{91D25BDF-FB25-44DA-A2D5-37F13AB9B43C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{91D25BDF-FB25-44DA-A2D5-37F13AB9B43C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{91D25BDF-FB25-44DA-A2D5-37F13AB9B43C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{91D25BDF-FB25-44DA-A2D5-37F13AB9B43C}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -83,5 +89,6 @@ Global
 		{F92FE52B-807E-47D4-ABE1-EE6BF426441F} = {E0854E81-7A78-4B19-BD32-65C997F52357}
 		{C7599269-856C-4C3F-8DE2-DF7729F3B450} = {E0854E81-7A78-4B19-BD32-65C997F52357}
 		{0A2D18A4-A438-4880-AE3B-A5895428A77A} = {E0854E81-7A78-4B19-BD32-65C997F52357}
+		{91D25BDF-FB25-44DA-A2D5-37F13AB9B43C} = {E0854E81-7A78-4B19-BD32-65C997F52357}
 	EndGlobalSection
 EndGlobal

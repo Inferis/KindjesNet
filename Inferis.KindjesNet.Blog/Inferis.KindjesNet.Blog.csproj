@@ -95,6 +95,7 @@
     <Compile Include="Managers\IBlogManager.cs" />
     <Compile Include="BlogPluginBootstrapper.cs" />
     <Compile Include="Migrations\Blog001_Initial.cs" />
+    <EmbeddedResource Include="Migrations\Scripts\Blog001_Initial.sql" />
     <Compile Include="Migrations\MigrationProvider.cs" />
     <Compile Include="Models\BlogPostFeedItem.cs" />
     <Compile Include="Models\Controllers\ArchiveModel.cs" />
@@ -108,6 +109,10 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\Inferis.Core.Migrations\Inferis.Core.Migrations.csproj">
+      <Project>{91D25BDF-FB25-44DA-A2D5-37F13AB9B43C}</Project>
+      <Name>Inferis.Core.Migrations</Name>
+    </ProjectReference>
     <ProjectReference Include="..\Inferis.KindjesNet.Core\Inferis.KindjesNet.Core.csproj">
       <Project>{92C82287-D08F-4E49-8B59-054522C974C8}</Project>
       <Name>Inferis.KindjesNet.Core</Name>
