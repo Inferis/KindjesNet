@@ -1,0 +1,53 @@
+﻿#mid .picture 
+{
+    float: right;
+    position: relative;
+    border: 1px solid #ccc;
+    background: white;
+}
+
+:root *> #mid .picture {
+    border: none;
+    background: none;
+}
+
+#mid .picture img
+{
+    border: 10px solid white;
+    
+    -webkit-transform: rotate(1deg);
+    -moz-transform: rotate(1deg);
+    transform: rotate(1deg);
+
+    -webkit-box-shadow: 1px 1px 5px rgba(66,66,66,0.2);
+    -moz-box-shadow: 1px 1px 10px rgba(66,66,66,0.2);
+    box-shadow: 1px 1px 10px rgba(66,66,66,0.2);
+    
+    -webkit-border-radius: 5px; 
+    -moz-border-radius: 5px; 
+    border-radius: 5px; 
+}
+
+#mid .picture span.tl
+{
+    display: block;
+    position: absolute;
+    top: -20px;
+    right: -26px;
+    width: 74px;
+    height: 56px;
+    background: url(img/plakker-tr.png) top right no-repeat;
+}
+
+#mid .picture span.br 
+{
+    display: block;
+    position: absolute;
+    bottom: -17px;
+    left: -26px;
+    background: green;
+    width: 62px;
+    height: 75px;
+    background: url(img/plakker-bl.png) bottom left no-repeat;
+}
+

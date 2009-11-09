@@ -7,9 +7,10 @@
 
 <h2>${Model.Name}</h2>
 
-<p>${Mark.Down(Model.Info)}</p>
+<div class="picture"><img src="~/Content/kids/${Model.Tag}.jpg" /><span class="tl"></span><span  class="br" ></span></div>
 
-<img class="picture" src="~/Content/kids/${Model.Tag}.jpg" />
+${Mark.Down(Model.Info)}
+
 
 <p>Allerlei gegevens (ala kind & gezin).</p>
 <p>Iets over meter en peter?</p>

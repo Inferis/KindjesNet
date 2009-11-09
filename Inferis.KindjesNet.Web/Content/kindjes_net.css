@@ -93,10 +93,23 @@ A
 #labels li a
 {
     display: block;
+    position: relative;
     width: 89px;
     height: 60px;
     text-indent: -10000px;
     overflow: hidden;
+}
+
+#labels li a.hl
+{
+    -webkit-transition: top 0.2s ease-in-out;
+    -moz-transition: top 0.2s ease-in-out;
+    transition: top 0.2s ease-in-out;
+}
+
+#labels li a:hover
+{
+    top: -5px;
 }
 
 #labels li.label-fien a
@@ -104,9 +117,14 @@ A
     background: url(img/label-fien.png) center center no-repeat;
 }
 
-#labels li.label-fien a.hl, #labels li.label-fien a:hover
+#labels li.label-fien a.hl
 {
-    background: url(img/label-fien-hl.png) center center no-repeat;
+    background-image: url(img/label-fien-hl.png);
+}
+
+#labels li.label-fien a:hover
+{
+    background-image: url(img/label-fien-over.png);
 }
 
 #labels li.label-klaas a
@@ -114,9 +132,14 @@ A
     background: url(img/label-klaas.png) center center no-repeat;
 }
 
-#labels li.label-klaas a.hl, #labels li.label-klaas a:hover
+#labels li.label-klaas a.hl
 {
-    background: url(img/label-klaas-hl.png) center center no-repeat;
+    background-image: url(img/label-klaas-hl.png);
+}
+
+#labels li.label-klaas a:hover
+{
+    background: url(img/label-klaas-over.png);
 }
 
 #labels li.label-trijn a
@@ -124,9 +147,14 @@ A
     background: url(img/label-trijn.png) center center no-repeat;
 }
 
-#labels li.label-trijn a.hl, #labels li.label-trijn a:hover
+#labels li.label-trijn a.hl
 {
-    background: url(img/label-trijn-hl.png) center center no-repeat;
+    background-image: url(img/label-trijn-hl.png);
+}
+
+#labels li.label-trijn a:hover
+{
+    background-image: url(img/label-trijn-over.png);
 }
 
 #content
@@ -280,3 +308,6 @@ h2
     font-size: 32px;
     font-weight: normal;
 }
+
+
+
