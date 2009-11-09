@@ -2,7 +2,7 @@
 
 <set Title="Model.Title" /> 
 
-<span class="fluo yellow"><span><h2>${Model.Title}</h2></span></span>
+<h2><span class="fluo blue"><span>${Model.Title}</span></span></h2>
 
 <p>Door ${Model.Author.Nick}</p>
 <div class="postbody">
