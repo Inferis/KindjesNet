@@ -56,7 +56,7 @@
     <Compile Include="TransformationProviderExtensions.cs" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\Inferis.Core\Inferis.Core.csproj">
+    <ProjectReference Include="..\..\Inferis APIs\Core\Inferis.Core\Inferis.Core.csproj">
       <Project>{7DC6F24A-66DE-4F1C-898F-2895EE485B3F}</Project>
       <Name>Inferis.Core</Name>
     </ProjectReference>
