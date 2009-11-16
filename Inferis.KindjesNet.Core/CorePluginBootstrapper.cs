@@ -1,4 +1,5 @@
 ﻿using System.ComponentModel.Composition;
+using Inferis.KindjesNet.Core.Connections.Facebook;
 using Inferis.KindjesNet.Core.Managers;
 using Inferis.KindjesNet.Core.Plugins;
 using Microsoft.Practices.Unity;
@@ -21,6 +22,9 @@ namespace Inferis.KindjesNet.Core
             Container.RegisterType<IHomepageManager, HomepageManager>();
             Container.RegisterType<ISpiderManager, SpiderManager>();
             Container.RegisterType<IMigrationManager, MigrationManager>();
+            Container.RegisterType<ISettingsManager, SettingsManager>();
+
+            Container.RegisterType<IFacebookConnection, FacebookConnection>();
         }
 
     }

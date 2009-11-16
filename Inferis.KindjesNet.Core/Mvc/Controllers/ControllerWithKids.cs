@@ -1,13 +1,12 @@
 ﻿using System.Collections.Generic;
 using System.Linq;
-using System.Web.Mvc;
 using Inferis.KindjesNet.Core.Managers;
 using Inferis.KindjesNet.Core.Models;
 using Microsoft.Practices.Unity;
 
 namespace Inferis.KindjesNet.Core.Mvc.Controllers
 {
-    public abstract class ControllerWithKids : Controller
+    public abstract class ControllerWithKids : KindjesNetController
     {
         [Dependency]
         public IKidManager KidManager { get; set; }

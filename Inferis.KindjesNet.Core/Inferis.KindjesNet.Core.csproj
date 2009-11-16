@@ -31,6 +31,10 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="Facebook, Version=3.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\Libaries\Facebook.dll</HintPath>
+    </Reference>
     <Reference Include="FluentNHibernate, Version=0.1.0.535, Culture=neutral, PublicKeyToken=8aa435e3cb308880, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
       <HintPath>..\Libaries\FluentNHibernate.dll</HintPath>
@@ -98,6 +102,8 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Connections\Facebook\FacebookConnection.cs" />
+    <Compile Include="Connections\Facebook\IFacebookConnection.cs" />
     <Compile Include="CorePluginBootstrapper.cs" />
     <Compile Include="CoreMappingConfigurator.cs" />
     <Compile Include="DataModelAttribute.cs" />
@@ -109,7 +115,9 @@
     <Compile Include="Data\Repository.cs" />
     <Compile Include="Data\HttpContextBasedUnitOfWorkContext.cs" />
     <Compile Include="Managers\IMigrationManager.cs" />
+    <Compile Include="Managers\ISettingsManager.cs" />
     <Compile Include="Managers\MigrationManager.cs" />
+    <Compile Include="Managers\SettingsManager.cs" />
     <Compile Include="Migrations\Core004_AddSettingTable.cs" />
     <Compile Include="Migrations\Core003_AddFieldsToKid.cs" />
     <Compile Include="Migrations\Core002_AddGodParentTable.cs" />
@@ -117,12 +125,15 @@
     <Compile Include="Migrations\MigrationProvider.cs" />
     <Compile Include="Models\EntityWithId.cs" />
     <Compile Include="Models\Setting.cs" />
+    <Compile Include="Mvc\Controllers\KindjesNetController.cs" />
     <Compile Include="Mvc\Html\Markdown.cs" />
+    <Compile Include="Security\KindjesNetAuthorizeAttribute.cs" />
     <Compile Include="Plugins\BaseMappingConfigurator.cs" />
     <Compile Include="Plugins\DataModelMappingConfigurator.cs" />
     <Compile Include="Plugins\SqlMigrationsProviderBase.cs" />
     <Compile Include="Plugins\IMigrationsProvider.cs" />
     <Compile Include="Plugins\MigrationsProviderBase.cs" />
+    <Compile Include="Security\KindjesNetMembershipProvider.cs" />
     <Compile Include="Utils\DateExtensions.cs" />
     <Compile Include="Utils\ItemWithUrlExtensions.cs" />
     <Compile Include="ItemWithUrlTypeAttribute.cs" />
@@ -167,6 +178,10 @@
     <ProjectReference Include="..\Inferis.Core.Migrations\Inferis.Core.Migrations.csproj">
       <Project>{91D25BDF-FB25-44DA-A2D5-37F13AB9B43C}</Project>
       <Name>Inferis.Core.Migrations</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\Inferis APIs\Core\Inferis.Core\Inferis.Core.csproj">
+      <Project>{7DC6F24A-66DE-4F1C-898F-2895EE485B3F}</Project>
+      <Name>Inferis.Core</Name>
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>

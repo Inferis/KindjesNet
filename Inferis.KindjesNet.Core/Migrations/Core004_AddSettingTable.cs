@@ -10,7 +10,7 @@ namespace Inferis.KindjesNet.Core.Migrations
         public override void Up()
         {
             Database.AddTable("Setting",
-                new Column("Name", DbType.String, 50, ColumnProperty.PrimaryKey),
+                new Column("Name", DbType.String, 250, ColumnProperty.PrimaryKey),
                 new Column("Value", DbType.String, 2000, ColumnProperty.Null)
             );
         }
