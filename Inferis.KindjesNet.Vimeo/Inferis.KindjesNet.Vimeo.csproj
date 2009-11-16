@@ -80,17 +80,18 @@
     <Compile Include="Managers\VimeoManager.cs" />
     <Compile Include="Migrations\Vimeo001_Initial.cs" />
     <Compile Include="Migrations\MigrationProvider.cs" />
+    <Compile Include="Models\VimeoSettings.cs" />
     <Compile Include="Spiders\VimeoVideoSpider.cs" />
     <Compile Include="VideoFeedItemProvider.cs" />
     <Compile Include="VimeoPluginBootstrapper.cs" />
-    <Compile Include="IVimeoSettings.cs" />
+    <Compile Include="IVimeoSettingsManager.cs" />
     <Compile Include="VimeoMappingConfigurator.cs" />
     <Compile Include="Controllers\VimeoController.cs" />
     <Compile Include="Models\VimeoVideoFeedItem.cs" />
     <Compile Include="Models\VimeoVideo.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="RouteProvider.cs" />
-    <Compile Include="VimeoSettings.cs" />
+    <Compile Include="VimeoSettingsManager.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\..\Inferis APIs\Vimeo\Inferis.API.Vimeo\Inferis.API.Vimeo.csproj">
@@ -101,7 +102,7 @@
       <Project>{91D25BDF-FB25-44DA-A2D5-37F13AB9B43C}</Project>
       <Name>Inferis.Core.Migrations</Name>
     </ProjectReference>
-    <ProjectReference Include="..\Inferis.Core\Inferis.Core.csproj">
+    <ProjectReference Include="..\..\Inferis APIs\Core\Inferis.Core\Inferis.Core.csproj">
       <Project>{7DC6F24A-66DE-4F1C-898F-2895EE485B3F}</Project>
       <Name>Inferis.Core</Name>
     </ProjectReference>

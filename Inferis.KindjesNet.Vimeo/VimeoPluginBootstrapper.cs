@@ -16,7 +16,6 @@ namespace Inferis.KindjesNet.Vimeo
         public void Boot()
         {
             Container.RegisterType<IVimeoManager, VimeoManager>();
-            Container.RegisterType<IVimeoSettings, VimeoSettings>();
         }
 
     }

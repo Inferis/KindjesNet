@@ -1,5 +1,6 @@
 ﻿using System.ComponentModel.Composition;
 using Inferis.API.Vimeo;
+using Inferis.API.Vimeo.Advanced.OAuth;
 using Inferis.KindjesNet.Core.Models;
 using Inferis.KindjesNet.Vimeo.Managers;
 using Inferis.KindjesNet.Vimeo.Models;
@@ -11,7 +12,7 @@ namespace Inferis.KindjesNet.Vimeo.Spiders
     public class VimeoVideoSpider : ISpider
     {
         [Import, Dependency]
-        public IVimeoSettings Settings { get; set; }
+        public IVimeoSettingsManager SettingsManager { get; set; }
 
         [Import, Dependency]
         public IVimeoManager VimeoManager { get; set; }
@@ -23,11 +24,11 @@ namespace Inferis.KindjesNet.Vimeo.Spiders
 
         public void Execute()
         {
-            var vimeo = new API.Vimeo.Advanced.Vimeo(Settings.ApiKey, Settings.Secret);
+            var vimeo = new API.Vimeo.Advanced.Vimeo(SettingsManager.GetRequirements());
             for (var currentPage = 1; ; currentPage++) {
                 // get all videos
-                bool foundNew = false;
-                var page = vimeo.Videos.GetAll(Settings.UserId, opt => opt.Sort = Sort.Newest, opt => opt.Page = currentPage, opt => opt.PerPage = 50);
+                var foundNew = false;
+                var page = vimeo.Videos.GetAll(SettingsManager.UserId, opt => opt.Sort = Sort.Newest, opt => opt.Page = currentPage, opt => opt.PerPage = 50);
 
                 foreach (var item in page) {
                     if (!VimeoManager.VideoExistsWithVimeoId(item.Id)) {
