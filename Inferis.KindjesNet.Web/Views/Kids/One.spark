@@ -1,5 +1,5 @@
 <content name="head">
-	<link rel="stylesheet" href="~/Content/kid.css" type="text/css" />
+	<link rel="stylesheet" href="~/Content/kids.css" type="text/css" />
 </content>
 
 <viewdata model="Kid">
@@ -7,7 +7,7 @@
 
 <h2>${Model.Name}</h2>
 
-<div class="picture"><img src="~/Content/kids/${Model.Tag}.jpg" /><span class="tl"></span><span  class="br" ></span></div>
+<div class="kidpic"><img src="~/Content/kids/${Model.Tag}.jpg" /><span class="tl"></span><span  class="br" ></span></div>
 
 ${Mark.Down(Model.Info)}
 

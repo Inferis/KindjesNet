@@ -39,6 +39,18 @@
       <SpecificVersion>False</SpecificVersion>
       <HintPath>..\Libaries\Castle.DynamicProxy2.dll</HintPath>
     </Reference>
+    <Reference Include="Facebook, Version=3.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\Libaries\Facebook.dll</HintPath>
+    </Reference>
+    <Reference Include="Facebook.Web, Version=3.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\Libaries\Facebook.Web.dll</HintPath>
+    </Reference>
+    <Reference Include="Facebook.Web.Mvc, Version=3.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\Libaries\Facebook.Web.Mvc.dll</HintPath>
+    </Reference>
     <Reference Include="FluentNHibernate, Version=0.1.0.535, Culture=neutral, PublicKeyToken=8aa435e3cb308880, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
       <HintPath>..\Libaries\FluentNHibernate.dll</HintPath>
@@ -100,9 +112,11 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Controllers\AccountController.cs" />
+    <Compile Include="Controllers\AdminController.cs" />
     <Compile Include="Controllers\GlobalArchiveController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\KidsController.cs" />
+    <Compile Include="Controllers\MeController.cs" />
     <Compile Include="Controllers\MigrationController.cs" />
     <Compile Include="Controllers\SpiderController.cs" />
     <Compile Include="Default.aspx.cs">
@@ -116,7 +130,7 @@
     <Compile Include="UnityExtensions.cs" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="Content\kid.css" />
+    <Content Include="Content\kids.css" />
     <Content Include="Content\img\around-bg.jpg" />
     <Content Include="Content\img\dummy.jpg" />
     <Content Include="Content\img\fluo-blue.png" />
@@ -149,10 +163,12 @@
     <Content Include="Scripts\nimbussandultlig_regular.typeface.js" />
     <Content Include="Scripts\nimbussantcelig_regular.typeface.js" />
     <Content Include="Scripts\typeface-0.13.js" />
+    <None Include="Views\Admin\Index.spark" />
     <Content Include="Views\GlobalArchive\Day.aspx" />
     <Content Include="Views\GlobalArchive\Month.aspx" />
     <Content Include="Views\GlobalArchive\Year.aspx" />
-    <Content Include="Views\Kids\Index.aspx" />
+    <None Include="Views\Kids\Index.spark">
+    </None>
     <Content Include="Views\Spider\Execute.aspx" />
     <Content Include="Views\Spider\Index.aspx" />
     <Content Include="Web.config" />
@@ -174,14 +190,16 @@
     <None Include="Views\Kids\Unknown.spark" />
     <None Include="Views\Kids\One.spark" />
     <None Include="Views\Layouts\Application.spark" />
+    <None Include="Views\Me\Entrance.spark" />
     <None Include="Views\Migration\Index.spark" />
     <None Include="Views\Shared\_KidsLabels.spark" />
     <None Include="Views\Shared\_global.spark" />
     <None Include="Views\Layouts\_Footer.spark" />
     <Content Include="Views\Web.config" />
+    <Content Include="xd_receiver.htm" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\Inferis.Core\Inferis.Core.csproj">
+    <ProjectReference Include="..\..\Inferis APIs\Core\Inferis.Core\Inferis.Core.csproj">
       <Project>{7DC6F24A-66DE-4F1C-898F-2895EE485B3F}</Project>
       <Name>Inferis.Core</Name>
     </ProjectReference>

@@ -1,5 +1,6 @@
 using System.Linq;
 using System.Web.Mvc;
+using Inferis.Core.Extensions;
 using Inferis.KindjesNet.Core.Mvc.Controllers;
 using Inferis.KindjesNet.Core.Utils;
 
@@ -10,7 +11,7 @@ namespace Inferis.KindjesNet.Web.Controllers
         // Geeft lijstjes terug van alle kinderen
         public ActionResult Index()
         {
-            return View();
+            return View(KidManager.GetAll());
         }
 
         public ActionResult One(string kid)

@@ -29,6 +29,11 @@ A
     color: #ff118c;
 }
 
+p 
+{
+    margin: 20px 0;
+}
+
 #around
 {
     position: relative;
@@ -98,6 +103,8 @@ A
     height: 60px;
     text-indent: -10000px;
     overflow: hidden;
+    background-position: 0 -120px;
+    background-repeat: no-repeat;
 }
 
 #labels li a.hl
@@ -105,56 +112,29 @@ A
     -webkit-transition: top 0.2s ease-in-out;
     -moz-transition: top 0.2s ease-in-out;
     transition: top 0.2s ease-in-out;
+    background-position: 0 0;
 }
 
 #labels li a:hover
 {
     top: -5px;
+    background-position: 0 -60px;
 }
 
 #labels li.label-fien a
 {
-    background: url(img/label-fien.png) center center no-repeat;
+    background-image: url(img/labels-fien.png);
 }
 
-#labels li.label-fien a.hl
-{
-    background-image: url(img/label-fien-hl.png);
-}
-
-#labels li.label-fien a:hover
-{
-    background-image: url(img/label-fien-over.png);
-}
 
 #labels li.label-klaas a
 {
-    background: url(img/label-klaas.png) center center no-repeat;
-}
-
-#labels li.label-klaas a.hl
-{
-    background-image: url(img/label-klaas-hl.png);
-}
-
-#labels li.label-klaas a:hover
-{
-    background: url(img/label-klaas-over.png);
+    background-image: url(img/labels-klaas.png);
 }
 
 #labels li.label-trijn a
 {
-    background: url(img/label-trijn.png) center center no-repeat;
-}
-
-#labels li.label-trijn a.hl
-{
-    background-image: url(img/label-trijn-hl.png);
-}
-
-#labels li.label-trijn a:hover
-{
-    background-image: url(img/label-trijn-over.png);
+    background-image: url(img/labels-trijn.png);
 }
 
 #content
@@ -309,5 +289,9 @@ h2
     font-weight: normal;
 }
 
-
+#footer 
+{
+    clear: both;
+    margin-top: 40px;
+}
 

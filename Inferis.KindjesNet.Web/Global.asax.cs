@@ -7,14 +7,12 @@ using System.Linq;
 using System.Web;
 using System.Web.Mvc;
 using System.Web.Routing;
-using System.Xml.Schema;
 using FluentNHibernate.Cfg;
 using FluentNHibernate.Cfg.Db;
 using FluentNHibernate.Conventions;
 using FluentNHibernate.Conventions.Helpers;
 using Inferis.KindjesNet.Core;
 using Inferis.KindjesNet.Core.Data;
-using Inferis.KindjesNet.Core.Models;
 using Inferis.KindjesNet.Core.Plugins;
 using Microsoft.Practices.Unity;
 using NHibernate;
@@ -49,19 +47,19 @@ namespace Inferis.KindjesNet.Web
         public MvcApplication()
         {
             id = Guid.NewGuid();
-            File.AppendAllText(@"c:\mvc\mvc.log", "New MvcApplication with id=" + id + "\r\n");
+            //File.AppendAllText(@"c:\mvc\mvc.log", "New MvcApplication with id=" + id + "\r\n");
 
-            //PreRequestHandlerExecute += (sender, e) => {
-            //    File.AppendAllText(@"c:\mvc\mvc.log", "PreRequestHandlerExecute with id=" + id + "\r\n");
-            //    try {
-            //        // see if we can resolve the session
-            //        Container.Resolve<ISession>();
-            //    }
-            //    catch (ResolutionFailedException ex) {
-            //        // we can't. Initialize it.
-            //        InitializeSessionFactory(false);
-            //    }
-            //};
+            PreRequestHandlerExecute += (sender, e) => {
+                //File.AppendAllText(@"c:\mvc\mvc.log", "PreRequestHandlerExecute with id=" + id + "\r\n");
+                try {
+                    // see if we can resolve the session
+                    Container.Resolve<ISessionFactory>();
+                }
+                catch (ResolutionFailedException ex) {
+                    // we can't. Initialize it.
+                    InitializeSessionFactory(false);
+                }
+            };
 
             PostRequestHandlerExecute += (sender, e) => {
                 var uow = Container.Resolve<IRepository>();
@@ -146,7 +144,7 @@ namespace Inferis.KindjesNet.Web
             }
 
             try {
-                Container.RegisterInstance(configuration.BuildSessionFactory());
+                Container.RegisterInstance((ISessionFactory)configuration.BuildSessionFactory());
             }
             catch (FluentConfigurationException ex) {
                 if (!appStart) throw;

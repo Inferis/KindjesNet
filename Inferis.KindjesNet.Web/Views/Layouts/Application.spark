@@ -1,11 +1,13 @@
-﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml">
+﻿<viewdata FacebookApiKey="string" />
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:fb="http://www.facebook.com/2008/fbml">
 <head runat="server">
     <title>${Title} - kindjes.net</title>
     <link href="~/Content/kindjes_net.css" rel="stylesheet" type="text/css" />
 	<script src="~/Scripts/cufon-yui.js"></script>
 	<script src="~/Scripts/Chauncy_Deluxxe_400.font.js"></script>
 	<script type="text/javascript">Cufon.replace('h2')('.feeditem .title');</script>
+	<script src="http://static.ak.connect.facebook.com/js/api_lib/v0.4/FeatureLoader.js.php" type="text/javascript"></script>
 	<use content="head" />
 </head>
 
@@ -24,12 +26,18 @@
             <div id="content">
 				<use:view />
             </div>
-            
-            <div id="footer">
-                <Footer />
-            </div>
+        </div>
+        <div id="footer">
+            <Footer />
         </div>
     </div>
+
 	<script type="text/javascript">Cufon.now();</script>
+	<script type="text/javascript">
+		FB_RequireFeatures(["XFBML"], function() {
+		   FB.Facebook.init("${FacebookApiKey}", "!{Url.Content('~/xd_receiver.htm')}");
+		});
+	</script>
+
 </body>
 </html>
