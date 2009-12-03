@@ -31,6 +31,10 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="DotNetOpenAuth, Version=3.2.2.9257, Culture=neutral, PublicKeyToken=2780ccd10d57b246, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\Libaries\DotNetOpenAuth.dll</HintPath>
+    </Reference>
     <Reference Include="Facebook, Version=3.0.0.0, Culture=neutral, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
       <HintPath>..\Libaries\Facebook.dll</HintPath>
@@ -111,6 +115,7 @@
     <Compile Include="Data\FluentNHibernateExtensions.cs" />
     <Compile Include="Data\IRepository.cs" />
     <Compile Include="Data\IUnitOfWorkContext.cs" />
+    <Compile Include="Data\CascadingSaveUpdateConvention.cs" />
     <Compile Include="Data\ManyToManyTableNameConvention.cs" />
     <Compile Include="Data\Repository.cs" />
     <Compile Include="Data\HttpContextBasedUnitOfWorkContext.cs" />
@@ -118,15 +123,19 @@
     <Compile Include="Managers\ISettingsManager.cs" />
     <Compile Include="Managers\MigrationManager.cs" />
     <Compile Include="Managers\SettingsManager.cs" />
+    <Compile Include="Migrations\Core006_AddExternalUserReferencesTable.cs" />
+    <Compile Include="Migrations\Core005_AddEmailToUser.cs" />
     <Compile Include="Migrations\Core004_AddSettingTable.cs" />
     <Compile Include="Migrations\Core003_AddFieldsToKid.cs" />
     <Compile Include="Migrations\Core002_AddGodParentTable.cs" />
     <Compile Include="Migrations\Core001_Initial.cs" />
     <Compile Include="Migrations\MigrationProvider.cs" />
+    <Compile Include="Models\ExternalUserReference.cs" />
     <Compile Include="Models\EntityWithId.cs" />
     <Compile Include="Models\Setting.cs" />
     <Compile Include="Mvc\Controllers\KindjesNetController.cs" />
     <Compile Include="Mvc\Html\Markdown.cs" />
+    <Compile Include="Mvc\WhenAuthorized.cs" />
     <Compile Include="Security\KindjesNetAuthorizeAttribute.cs" />
     <Compile Include="Plugins\BaseMappingConfigurator.cs" />
     <Compile Include="Plugins\DataModelMappingConfigurator.cs" />

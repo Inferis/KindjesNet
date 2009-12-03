@@ -1,0 +1,17 @@
+<viewdata model="IEnumerable<Kid>" />
+<content name="head">
+	<link rel="stylesheet" href="~/Content/kids.css" type="text/css" />
+</content>
+<set Title="'Onze kindjes'" />
+
+<h2>Onze kindjes</h2>
+
+Dit zijn <em>al</em> onze kindjes.
+
+<ul class="kids">
+    <for each="var kid in Model">
+		<li class="kidpic"><a href="${Url.Action(kid.Tag)}" class="${kid.Tag}"><img src="~/Content/kids/${kid.Tag}-thumb.jpg" /></a><span class="tl"></span><span  class="br" ></span></li>
+    </for>
+</ul>
+
+

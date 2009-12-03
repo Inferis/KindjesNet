@@ -14,7 +14,7 @@ namespace Inferis.KindjesNet.Web.Controllers
 {
     public class SpiderController : Controller
     {
-        [Import, Dependency]
+        [Dependency]
         public ISpiderManager SpiderManager { get; set; }
 
         public ActionResult Index()

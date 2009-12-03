@@ -116,7 +116,7 @@
     <Compile Include="Controllers\GlobalArchiveController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\KidsController.cs" />
-    <Compile Include="Controllers\MeController.cs" />
+    <Compile Include="Controllers\UsersController.cs" />
     <Compile Include="Controllers\MigrationController.cs" />
     <Compile Include="Controllers\SpiderController.cs" />
     <Compile Include="Default.aspx.cs">
@@ -126,35 +126,41 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
+    <Compile Include="Models\UserBadge.cs" />
+    <Compile Include="Models\UserProfileModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="UnityExtensions.cs" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Content\img\fluo-purple.png" />
+    <Content Include="Content\img\labels-fien.png" />
+    <Content Include="Content\img\labels-klaas.png" />
+    <Content Include="Content\img\labels-trijn.png" />
+    <Content Include="Content\img\plakker-bl.png" />
+    <Content Include="Content\img\plakker-tr.png" />
+    <Content Include="Content\img\postit.png" />
     <Content Include="Content\kids.css" />
     <Content Include="Content\img\around-bg.jpg" />
     <Content Include="Content\img\dummy.jpg" />
     <Content Include="Content\img\fluo-blue.png" />
     <Content Include="Content\img\fluo-green.png" />
-    <Content Include="Content\img\fluo-orange.jpg" />
     <Content Include="Content\img\fluo-orange.png" />
     <Content Include="Content\img\fluo-pink.png" />
     <Content Include="Content\img\fluo-yellow.png" />
     <Content Include="Content\img\icon-blog.png" />
     <Content Include="Content\img\icon-vimeo.png" />
-    <Content Include="Content\img\label-fien-hl.png" />
-    <Content Include="Content\img\label-fien.png" />
-    <Content Include="Content\img\label-klaas-hl.png" />
-    <Content Include="Content\img\label-klaas.png" />
-    <Content Include="Content\img\label-trijn-hl.png" />
-    <Content Include="Content\img\label-trijn.png" />
-    <Content Include="Content\img\left-bg.jpg" />
     <Content Include="Content\img\page-bg.jpg" />
     <Content Include="Content\img\right-bg.png" />
-    <Content Include="Content\img\old-top-bg.png" />
     <Content Include="Content\img\thdown.png" />
     <Content Include="Content\img\thup.png" />
     <Content Include="Content\img\title.png" />
     <Content Include="Content\img\top-bg.png" />
+    <Content Include="Content\kids\fien-thumb.jpg" />
+    <Content Include="Content\kids\fien.jpg" />
+    <Content Include="Content\kids\klaas-thumb.jpg" />
+    <Content Include="Content\kids\klaas.jpg" />
+    <Content Include="Content\kids\trijn-thumb.jpg" />
+    <Content Include="Content\kids\trijn.jpg" />
     <Content Include="Content\kindjes_net.css" />
     <Content Include="Default.aspx" />
     <Content Include="Global.asax" />
@@ -190,8 +196,11 @@
     <None Include="Views\Kids\Unknown.spark" />
     <None Include="Views\Kids\One.spark" />
     <None Include="Views\Layouts\Application.spark" />
-    <None Include="Views\Me\Entrance.spark" />
+    <None Include="Views\Users\Unknown.spark" />
+    <None Include="Views\Users\Profile.spark" />
+    <None Include="Views\Users\Entrance.spark" />
     <None Include="Views\Migration\Index.spark" />
+    <None Include="Views\Shared\_UserBadge.spark" />
     <None Include="Views\Shared\_KidsLabels.spark" />
     <None Include="Views\Shared\_global.spark" />
     <None Include="Views\Layouts\_Footer.spark" />
@@ -210,7 +219,6 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
-    <Folder Include="Controllers\Models\" />
     <Folder Include="Plugins\" />
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />

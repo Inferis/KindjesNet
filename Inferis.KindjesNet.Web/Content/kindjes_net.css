@@ -61,9 +61,9 @@ p
     position: absolute;
 }
 
-#side h1 a
+#side h1
 {
-    margin: 52px 0 0 30px;
+    margin: 52px 0 40px 30px;
 }
 
 #side h1 a
@@ -93,6 +93,8 @@ p
     display: block;
     float: left;
     margin-left: 10px;
+    background-position: 0 -120px;
+    background-repeat: no-repeat;
 }
 
 #labels li a
@@ -103,44 +105,64 @@ p
     height: 60px;
     text-indent: -10000px;
     overflow: hidden;
-    background-position: 0 -120px;
+    -webkit-opacity: 0.0;
+    -moz-opacity: 0.0;
+    opacity: 0.0;
+    filter: alpha(opacity=0);
+    -ms-filter: "alpha(opacity=0)";
     background-repeat: no-repeat;
+    background-position: 0 0;
+    -ms-transition: top 0.2s ease-in-out;
+    -ms-transition-property: top, -webkit-opacity;
+    -webkit-transition: top 0.2s ease-in-out;
+    -webkit-transition-property: top, -webkit-opacity;
+    -moz-transition: top 0.2s ease-in-out;
+    -moz-transition-property: top, -moz-opacity;
+    transition: top 0.2s ease-in-out;
+    transition-property: top, opacity;
 }
 
 #labels li a.hl
 {
-    -webkit-transition: top 0.2s ease-in-out;
-    -moz-transition: top 0.2s ease-in-out;
-    transition: top 0.2s ease-in-out;
+    -webkit-opacity: 1;
+    -moz-opacity: 1;
+    opacity: 1;
+    filter: none;
+    -ms-filter: none;
     background-position: 0 0;
 }
 
 #labels li a:hover
 {
     top: -5px;
+    -webkit-opacity: 1;
+    -moz-opacity: 1;
+    opacity: 1;
+    filter: none;
+    -ms-filter: none;
     background-position: 0 -60px;
 }
 
-#labels li.label-fien a
+#labels li.label-fien, #labels li.label-fien a
 {
     background-image: url(img/labels-fien.png);
 }
 
 
-#labels li.label-klaas a
+#labels li.label-klaas, #labels li.label-klaas a
 {
     background-image: url(img/labels-klaas.png);
 }
 
-#labels li.label-trijn a
+#labels li.label-trijn, #labels li.label-trijn a
 {
     background-image: url(img/labels-trijn.png);
 }
 
 #content
 {
-    color: rgba(0, 0, 0, 0.6);
-    text-shadow: rgba(255, 255, 255, 0.85) 1px 1px 1px; 
+    color: rgba(0, 0, 22, 0.6);
+    text-shadow: rgba(0, 0, 51, 0.20) 0px 0px 5px; 
 }
 
 #content img
@@ -154,6 +176,21 @@ span.fluo
     padding: 4px 0px 4px 0px;
     clip: rect(0 48px 0 0);
     margin-right: 10px;
+}
+
+span.fluo.hover
+{      
+    -webkit-opacity: 0.7;
+    -moz-opacity: 0.7;
+    opacity: 0.7;
+    -webkit-transition: opacity 0.2s ease-in-out;
+    -moz-transition: opacity 0.2s ease-in-out;
+    transition: opacity 0.2s ease-in-out;
+}
+
+span.fluo.hover:hover
+{
+    opacity: 1;
 }
 
 span.fluo span
@@ -295,3 +332,62 @@ h2
     margin-top: 40px;
 }
 
+#nav 
+{
+    float: right;
+    position: relative;
+    left: 20px;
+}
+
+#nav li
+{
+    text-align: center;
+    padding: 0 0 20px 0;
+    font-size: 20px;
+    width: 190px;
+}
+
+#nav li a
+{
+    color: black;
+    text-decoration: none;
+}
+
+.clear 
+{
+    clear: left;
+}
+
+
+/* BADGE */
+
+#userbadge 
+{
+    width: 144px;
+    height: 203px;
+    position: relative;
+    left: -40px;
+    top: -35px;
+    background: url(img/postit.png) top left no-repeat;
+    padding: 20px 20px 20px 50px;
+    text-align: right;
+}
+
+#userbadge .login 
+{
+    text-decoration: none;
+    font-size: 20pt;
+    margin: 0;
+    padding: 0;
+}
+
+#loginpopup 
+{
+    background: red;
+    position: absolute;
+    width: 500px;
+    height: 200px;
+    top: 70px;
+    left: 220px;
+    z-order: 1000px;
+}

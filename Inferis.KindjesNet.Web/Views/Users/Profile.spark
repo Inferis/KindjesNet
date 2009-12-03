@@ -1,0 +1,7 @@
+﻿<viewdata model="Inferis.KindjesNet.Web.Models.UserProfileModel" />
+
+<h2>Gebruikersprofiel</h2>
+
+<p>Naam: ${Model.Name}</p>
+<p>Id: ${Model.Id}</p>
+

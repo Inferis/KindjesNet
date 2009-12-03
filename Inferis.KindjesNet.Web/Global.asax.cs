@@ -23,43 +23,23 @@ namespace Inferis.KindjesNet.Web
     public class MvcApplication : HttpApplication, IWithContainer
     {
         private Guid id;
-
         private PluginContainer pluginsContainer;
 
-        public IUnityContainer Container
-        {
-            get
-            {
-                return (IUnityContainer)HttpContext.Current.Application["Container"];
-            }
-            set
-            {
-                HttpContext.Current.Application.Lock();
-                try {
-                    HttpContext.Current.Application["Container"] = value;
-                }
-                finally {
-                    HttpContext.Current.Application.UnLock();
-                }
-            }
-        }
 
         public MvcApplication()
         {
             id = Guid.NewGuid();
-            //File.AppendAllText(@"c:\mvc\mvc.log", "New MvcApplication with id=" + id + "\r\n");
 
-            PreRequestHandlerExecute += (sender, e) => {
-                //File.AppendAllText(@"c:\mvc\mvc.log", "PreRequestHandlerExecute with id=" + id + "\r\n");
-                try {
-                    // see if we can resolve the session
-                    Container.Resolve<ISessionFactory>();
-                }
-                catch (ResolutionFailedException ex) {
-                    // we can't. Initialize it.
-                    InitializeSessionFactory(false);
-                }
-            };
+            //PreRequestHandlerExecute += (sender, e) => {
+            //    try {
+            //        // see if we can resolve the session
+            //        Container.Resolve<ISessionFactory>();
+            //    }
+            //    catch (ResolutionFailedException ex) {
+            //        // we can't. Initialize it.
+            //        InitializeSessionFactory(false);
+            //    }
+            //};
 
             PostRequestHandlerExecute += (sender, e) => {
                 var uow = Container.Resolve<IRepository>();
@@ -101,11 +81,35 @@ namespace Inferis.KindjesNet.Web
                 );
 
             routes.MapRoute(
+                "Users",                                              // Route name
+                "users/{action}/{id}",                           // URL with parameters
+                new { controller = "Users", action = "Profile", id = "" }  // Parameter defaults
+                );
+
+            routes.MapRoute(
                 "Default",                                              // Route name
                 "{controller}/{action}/{id}",                           // URL with parameters
                 new { controller = "Home", action = "Index", id = "" }  // Parameter defaults
                 );
 
+        }
+
+        public IUnityContainer Container
+        {
+            get
+            {
+                return (IUnityContainer)HttpContext.Current.Application["Container"];
+            }
+            set
+            {
+                HttpContext.Current.Application.Lock();
+                try {
+                    HttpContext.Current.Application["Container"] = value;
+                }
+                finally {
+                    HttpContext.Current.Application.UnLock();
+                }
+            }
         }
 
         protected void Application_Start()
@@ -136,6 +140,7 @@ namespace Inferis.KindjesNet.Web
                 f.Add(PrimaryKey.Name.Is(x => x.Property.ReflectedType.Name + "Id"));
                 f.Add(ForeignKey.EndsWith("Id"));
                 f.Add(new Core.Data.ManyToManyTableNameConvention());
+                f.Add(new CascadingSaveUpdateConvention());
             };
 
             foreach (var configurator in MappingConfigurators) {

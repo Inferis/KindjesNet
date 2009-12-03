@@ -1,0 +1,11 @@
+﻿entrance!
+
+<form method="post">
+
+	<p>Email: <input type="text" name="email" width="16"></p>
+	<p>Paswoord: <input type="password" name="password" width="16"></p>
+
+	<button type="submit">Inloggen</button>
+</form>
+
+<fb:login-button onlogin="window.location.reload()" v="2" size="large">Inloggen met Facebook</fb:login-button>

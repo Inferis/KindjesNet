@@ -1,6 +1,5 @@
 ﻿using System.ComponentModel.Composition;
 using Inferis.API.Vimeo;
-using Inferis.API.Vimeo.Advanced.OAuth;
 using Inferis.KindjesNet.Core.Models;
 using Inferis.KindjesNet.Vimeo.Managers;
 using Inferis.KindjesNet.Vimeo.Models;

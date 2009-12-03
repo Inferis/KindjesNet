@@ -1,0 +1,15 @@
+﻿<viewdata CurrentUser="Inferis.KindjesNet.Web.Models.UserBadge" />
+
+<div id="userbadge" class="decorated">
+
+	<if condition="CurrentUser == null">
+	
+		<p>Niet ingelogd</p>
+		<p><a class="login" href="#">Inloggen</a></P>
+		
+	<else/>
+		<p>Wel ingelogd</p>
+		<p>!{Html.ActionLink("Logout", "Logout")}</p>
+	</if>
+	            
+</div>
